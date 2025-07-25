@@ -60,6 +60,9 @@ a {
   --bg-primary: #0a0e1a; /* Plus sombre */
   --bg-secondary: #1a1f2e; /* Plus sombre */
   --bg-tertiary: #252b3d;
+
+  /* Tes variables existantes... */
+  --accent-orange: #ffa726;
 }
 
 .title {
@@ -851,5 +854,118 @@ footer {
   .radar-screen {
     width: 150px;
     height: 150px;
+  }
+}
+
+/* Hot Deals Section */
+.hot-deals {
+  margin: 3rem 0;
+}
+
+.hot-deals-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--accent-orange);
+  text-shadow: 0 0 20px rgba(255, 167, 38, 0.4);
+}
+
+.deals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.deal-card {
+  background: linear-gradient(
+    135deg,
+    rgba(26, 31, 46, 0.9),
+    rgba(37, 43, 61, 0.9)
+  );
+  border: 1px solid rgba(255, 71, 87, 0.3);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.deal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(255, 71, 87, 0.2);
+  border-color: var(--accent-red);
+}
+
+.deal-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--accent-red);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-shadow: 0 0 10px rgba(255, 71, 87, 0.5);
+}
+
+.deal-game {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.deal-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.deal-price {
+  font-size: 1.5rem;
+  color: var(--accent-green-flashy);
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-shadow: 0 0 15px var(--glow-green);
+}
+
+.deal-old-price {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+.deal-timer {
+  color: var(--accent-orange);
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: center;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Responsive Hot Deals */
+@media (max-width: 768px) {
+  .deals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hot-deals-title {
+    font-size: 1.5rem;
   }
 }
