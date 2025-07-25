@@ -62,6 +62,25 @@ header {
   align-items: center;
   height: 100px;
 }
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .logoTitle {
+    margin-left: 0;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+}
 
 body {
   background-color: var(--bg-primary);
@@ -71,6 +90,19 @@ main {
   margin: 0 auto;
   padding: 0 40px;
   width: 90%;
+}
+@media (max-width: 768px) {
+  main {
+    padding: 0 20px;
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 0 15px;
+    width: 100%;
+  }
 }
 
 .logoTitle {
@@ -101,6 +133,37 @@ button.active {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+}
+@media (max-width: 768px) {
+  .container-promo {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoTitlePromo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .card-grid-promotions {
+    padding: 15px;
+    margin-top: 5%;
+  }
+
+  .card-grid-promotions h3 {
+    font-size: 20px;
+  }
+
+  .card-grid-promotions h4 {
+    font-size: 24px;
+  }
+
+  .card-grid-promotions p {
+    font-size: 14px;
+  }
 }
 
 .logoTitlePromo {
@@ -171,6 +234,30 @@ button.active {
   color: var(--text-primary);
   min-width: 150px;
   width: 25%;
+}
+@media (max-width: 768px) {
+  .search {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .search input[type="text"] {
+    width: 100%;
+  }
+
+  .search select {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .search {
+    padding: 15px;
+    margin: 15px 0;
+  }
 }
 
 .container-jeux {
