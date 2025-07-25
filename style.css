@@ -969,3 +969,70 @@ footer {
     font-size: 1.5rem;
   }
 }
+
+/* Market Intelligence Section */
+.market-intel {
+  margin: 3rem 0;
+}
+
+.intel-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.intel-card {
+  background: linear-gradient(
+    135deg,
+    rgba(37, 43, 61, 0.8),
+    rgba(26, 31, 46, 0.8)
+  );
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.intel-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 15px 30px rgba(0, 212, 255, 0.15);
+}
+
+.intel-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
+}
+
+.intel-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--accent-cyan);
+  text-shadow: 0 0 10px var(--glow-cyan);
+}
+
+.intel-desc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Responsive Market Intel */
+@media (max-width: 768px) {
+  .intel-cards {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .intel-card {
+    padding: 1.5rem;
+  }
+
+  .intel-icon {
+    font-size: 2.5rem;
+  }
+}
