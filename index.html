@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>gameDeals</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-      <i class="fa-solid fa-gamepad"></i>
-      <h1 class="title">gameDeals</h1>
+      <div class="logoTitle">
+        <i class="fa-solid fa-gamepad"></i>
+        <h1 class="title">gameDeals</h1>
+      </div>
       <nav>
         <button data-filter="deals">Deals du momment</button>
         <button data-filter="all">Tous les jeux</button>
@@ -43,7 +45,6 @@
       </section>
       <section class="search">
         <input type="text" placeholder="Rechercher des jeux..." />
-        <button>Rechercher</button>
         <select name="filtre" id="filtre-select">
           <option value="reduction">Trier par réduction</option>
           <option value="prix">Trier par prix</option>
