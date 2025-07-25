@@ -79,6 +79,7 @@ button {
   padding: 10px 20px;
   border-radius: 5px;
   transition: background-color 0.3s ease;
+  gap: 20px;
 }
 
 button:hover {
@@ -88,4 +89,40 @@ button:hover {
 button.active {
   background-color: var(--accent-blue);
   color: var(--text-primary);
+}
+
+.container-promo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.logoTitlePromo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--text-primary);
+}
+
+.card-grid-promotions {
+  background: linear-gradient(135deg, var(--accent-red), #ea580c);
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+}
+h3 {
+  color: var(--text-primary);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+h4 {
+  color: var(--text-primary);
+  font-size: 30px;
+  font-weight: bold;
+}
+
+p {
+  color: var(--text-primary);
+  font-size: 16px;
 }
