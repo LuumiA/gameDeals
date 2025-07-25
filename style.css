@@ -194,7 +194,6 @@ button.active {
   background-color: #2d3748;
 }
 
-/* Badge de réduction */
 .card-grid-games .badge {
   position: absolute;
   top: 15px;
@@ -207,14 +206,12 @@ button.active {
   font-weight: bold;
 }
 
-/* Icône du jeu */
 .card-grid-games .fa-gamepad {
   font-size: 2.5rem;
   color: var(--accent-blue);
   margin-bottom: 15px;
 }
 
-/* Titre du jeu */
 .card-grid-games h3 {
   color: var(--text-primary);
   font-size: 1.125rem;
@@ -223,7 +220,6 @@ button.active {
   line-height: 1.2;
 }
 
-/* Note avec étoile */
 .card-grid-games span {
   display: flex;
   align-items: center;
@@ -237,7 +233,6 @@ button.active {
   font-size: 0.875rem;
 }
 
-/* Prix */
 .card-grid-games p {
   margin-bottom: 8px;
   color: var(--text-primary);
@@ -249,7 +244,6 @@ button.active {
   font-weight: bold;
 }
 
-/* Liste des plateformes */
 .card-grid-games ul {
   display: flex;
   flex-wrap: wrap;
@@ -265,7 +259,6 @@ button.active {
   font-size: 0.75rem;
 }
 
-/* Bouton */
 .card-grid-games button {
   background-color: var(--accent-blue);
   color: var(--text-primary);
@@ -280,7 +273,6 @@ button.active {
   background-color: var(--accent-blue-hover);
 }
 
-/* Responsive */
 @media (max-width: 1200px) {
   .container-jeux {
     grid-template-columns: repeat(3, 1fr);
@@ -296,5 +288,86 @@ button.active {
 @media (max-width: 600px) {
   .container-jeux {
     grid-template-columns: 1fr;
+  }
+}
+footer {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  margin-top: 60px;
+  padding: 40px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-logo {
+  color: var(--accent-blue);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.footer-text {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent-blue);
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons i {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.social-icons i:hover {
+  color: var(--accent-blue);
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 15px;
   }
 }
