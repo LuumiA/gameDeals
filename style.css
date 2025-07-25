@@ -6,8 +6,11 @@
 }
 
 body {
+  background: linear-gradient(135deg, #0a0e1a 0%, #0f172a 50%, #0a0e1a 100%);
+  color: var(--text-primary);
   font-family: Arial, sans-serif;
   line-height: 1.6;
+  min-height: 100vh;
 }
 
 /* Enlever les styles par défaut des listes */
@@ -22,6 +25,19 @@ button {
   background: none;
   cursor: pointer;
   font-family: inherit;
+  color: var(--text-primary);
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--bg-tertiary);
+}
+
+button.active {
+  background-color: var(--accent-blue);
+  color: var(--text-primary);
 }
 
 /* Enlever les styles par défaut des liens */
@@ -30,52 +46,44 @@ a {
   color: inherit;
 }
 
+/* Variables CSS */
 :root {
-  /* Couleurs principales */
-  --bg-primary: #111827; /* Fond général (gris très sombre) */
-  --bg-secondary: #1f2937; /* Fond des cartes/header (gris sombre) */
-  --bg-tertiary: #374151; /* Fond des éléments interactifs (gris moyen) */
+  /* Fonds */
+  --bg-primary: #0a0e1a;
+  --bg-secondary: #1a1f2e;
+  --bg-tertiary: #252b3d;
 
   /* Texte */
-  --text-primary: #ffffff; /* Texte principal (blanc) */
-  --text-secondary: #9ca3af; /* Texte secondaire (gris clair) */
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
 
   /* Couleurs d'accent */
-  --accent-blue: #2563eb; /* Bleu des boutons actifs */
-  --accent-blue-hover: #1d4ed8; /* Bleu hover */
-  --accent-red: #dc2626; /* Rouge des promotions/réductions */
-  --accent-green: #10b981; /* Vert des prix */
-  --accent-yellow: #fbbf24; /* Jaune des étoiles */
-
-  /* Bordures */
-  --border-color: #4b5563; /* Couleur des bordures */
-
-  /* Nouvelles couleurs gaming flashy */
+  --accent-blue: #2563eb;
+  --accent-blue-hover: #1d4ed8;
+  --accent-red: #dc2626;
+  --accent-green: #10b981;
+  --accent-yellow: #fbbf24;
   --accent-green-flashy: #00ff88;
   --accent-cyan: #00d4ff;
+  --accent-orange: #ffa726;
+
+  /* Effets glow */
   --glow-green: rgba(0, 255, 136, 0.4);
   --glow-cyan: rgba(0, 212, 255, 0.3);
 
-  /* Fonds plus sombres comme la maquette */
-  --bg-primary: #0a0e1a; /* Plus sombre */
-  --bg-secondary: #1a1f2e; /* Plus sombre */
-  --bg-tertiary: #252b3d;
-
-  /* Tes variables existantes... */
-  --accent-orange: #ffa726;
+  /* Bordures */
+  --border-color: #4b5563;
 }
 
-.title {
-  color: var(--accent-cyan);
-  text-shadow: 0 0 20px var(--glow-cyan);
-  font-weight: bold;
-}
-.logoTitle i {
-  color: var(--accent-cyan);
-  text-shadow: 0 0 15px var(--glow-cyan);
-  font-size: 1.5rem;
+/* Layout principal */
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 90%;
 }
 
+/* Header */
 header {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
@@ -83,55 +91,29 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 100px;
-  border-bottom: 1px solid rgba(0, 212, 255, 0.2); /* Bordure cyan subtile */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Ombre pour le depth */
-}
-/* Responsive pour le header */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    height: auto;
-    padding: 20px;
-    gap: 20px;
-  }
-
-  .logoTitle {
-    margin-left: 0;
-  }
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .header-stats {
-    margin-right: 0;
-    gap: 1.5rem;
-  }
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 480px) {
-  .header-stats {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .stat-number {
-    font-size: 1rem;
-  }
-
-  .stat-label {
-    font-size: 0.75rem;
-  }
-
-  nav button {
-    padding: 8px 16px;
-    font-size: 0.875rem;
-  }
+.logoTitle {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: 20px;
 }
-/* Header stats styling */
+
+.title {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 20px var(--glow-cyan);
+  font-weight: bold;
+}
+
+.logoTitle i {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 15px var(--glow-cyan);
+  font-size: 1.5rem;
+}
+
 .header-stats {
   display: flex;
   gap: 2rem;
@@ -154,387 +136,6 @@ header {
   font-size: 0.8rem;
   color: var(--text-secondary);
   margin-top: 2px;
-}
-
-body {
-  background: linear-gradient(135deg, #0a0e1a 0%, #0f172a 50%, #0a0e1a 100%);
-  color: var(--text-primary);
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  min-height: 100vh;
-}
-main {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 40px;
-  width: 90%;
-}
-@media (max-width: 768px) {
-  main {
-    padding: 0 20px;
-    width: 95%;
-  }
-}
-
-@media (max-width: 480px) {
-  main {
-    padding: 0 15px;
-    width: 100%;
-  }
-}
-
-.logoTitle {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-left: 20px;
-}
-
-button {
-  color: var(--text-primary);
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  gap: 20px;
-}
-
-button:hover {
-  background-color: var(--bg-tertiary);
-}
-
-button.active {
-  background-color: var(--accent-blue);
-  color: var(--text-primary);
-}
-
-.container-promo {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-@media (max-width: 768px) {
-  .container-promo {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .logoTitlePromo {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .card-grid-promotions {
-    padding: 15px;
-    margin-top: 5%;
-  }
-
-  .card-grid-promotions h3 {
-    font-size: 20px;
-  }
-
-  .card-grid-promotions h4 {
-    font-size: 24px;
-  }
-
-  .card-grid-promotions p {
-    font-size: 14px;
-  }
-}
-
-.logoTitlePromo {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  color: var(--text-primary);
-}
-
-.card-grid-promotions {
-  background: linear-gradient(135deg, var(--accent-red), #ea580c);
-  padding: 10px;
-  border-radius: 10px;
-  width: 100%;
-  margin-top: 3%;
-}
-.card-grid-promotions h3 {
-  color: var(--text-primary);
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.card-grid-promotions h4 {
-  color: var(--text-primary);
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.card-grid-promotions p {
-  color: var(--text-primary);
-  font-size: 16px;
-}
-
-.search {
-  background-color: var(--bg-secondary);
-  padding: 20px;
-  border-radius: 10px;
-  margin: 20px 0;
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
-
-.search input[type="text"] {
-  background-color: var(--bg-tertiary);
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  padding: 10px;
-  color: var(--text-primary);
-  width: 40%;
-}
-
-.search input[type="text"]::placeholder {
-  color: var(--text-secondary);
-}
-
-.search button {
-  background-color: var(--accent-blue);
-  padding: 10px 15px;
-  border-radius: 5px;
-}
-
-.search select {
-  background-color: var(--bg-tertiary);
-  border: 1px solid var(--border-color);
-  border-radius: 5px;
-  padding: 10px;
-  color: var(--text-primary);
-  min-width: 150px;
-  width: 25%;
-}
-@media (max-width: 768px) {
-  .search {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 15px;
-    padding: 20px;
-  }
-
-  .search input[type="text"] {
-    width: 100%;
-  }
-
-  .search select {
-    width: 100%;
-    min-width: auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .search {
-    padding: 15px;
-    margin: 15px 0;
-  }
-}
-
-.container-jeux {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.card-grid-games {
-  background-color: var(--bg-secondary);
-  border-radius: 10px;
-  padding: 20px;
-  position: relative;
-  transition: background-color 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.card-grid-games:hover {
-  background-color: #2d3748;
-}
-
-.card-grid-games .badge {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: var(--accent-red);
-  color: var(--text-primary);
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  font-weight: bold;
-}
-
-.card-grid-games .fa-gamepad {
-  font-size: 2.5rem;
-  color: var(--accent-blue);
-  margin-bottom: 15px;
-}
-
-.card-grid-games h3 {
-  color: var(--text-primary);
-  font-size: 1.125rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  line-height: 1.2;
-}
-
-.card-grid-games span {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-bottom: 10px;
-  font-size: 0.875rem;
-}
-
-.card-grid-games .fa-star {
-  color: var(--accent-yellow);
-  font-size: 0.875rem;
-}
-
-.card-grid-games p {
-  margin-bottom: 8px;
-  color: var(--text-primary);
-}
-
-.prix-actuel {
-  color: var(--accent-green) !important;
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-
-.card-grid-games ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin: 15px 0;
-}
-
-.card-grid-games li {
-  background-color: var(--bg-tertiary);
-  color: var(--text-primary);
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-}
-
-.card-grid-games button {
-  background-color: var(--accent-blue);
-  color: var(--text-primary);
-  padding: 12px;
-  border-radius: 6px;
-  font-weight: 600;
-  margin-top: auto;
-  transition: background-color 0.2s ease;
-}
-
-.card-grid-games button:hover {
-  background-color: var(--accent-blue-hover);
-}
-
-@media (max-width: 1200px) {
-  .container-jeux {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  .container-jeux {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .container-jeux {
-    grid-template-columns: 1fr;
-  }
-}
-footer {
-  background-color: var(--bg-secondary);
-  color: var(--text-primary);
-  margin-top: 60px;
-  padding: 40px 0;
-  border-top: 1px solid var(--border-color);
-}
-
-.footer-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 40px;
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.footer-left {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.footer-logo {
-  color: var(--accent-blue);
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.footer-text {
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-}
-
-.footer-links {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-}
-
-.footer-links a {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 0.875rem;
-  transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-  color: var(--accent-blue);
-}
-
-.social-icons {
-  display: flex;
-  gap: 15px;
-}
-
-.social-icons i {
-  color: var(--text-secondary);
-  font-size: 1.2rem;
-  transition: color 0.2s ease;
-  cursor: pointer;
-}
-
-.social-icons i:hover {
-  color: var(--accent-blue);
-}
-
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-links {
-    flex-direction: column;
-    gap: 15px;
-  }
 }
 
 /* Hero Section */
@@ -602,37 +203,6 @@ footer {
   margin-top: 0.5rem;
 }
 
-/* Responsive Hero */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.5rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-  }
-
-  .hero-stats {
-    gap: 2rem;
-  }
-
-  .hero-stat-number {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    padding: 2rem 0;
-  }
-
-  .hero-stats {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-}
-
 /* Particles Background */
 .particles {
   position: fixed;
@@ -683,7 +253,6 @@ footer {
   margin-bottom: 3rem;
 }
 
-/* Live Stats Panel */
 .stats-panel {
   background: linear-gradient(
     135deg,
@@ -841,22 +410,6 @@ footer {
   margin-top: 1rem;
 }
 
-/* Responsive Command Center */
-@media (max-width: 768px) {
-  .command-panels {
-    grid-template-columns: 1fr;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .radar-screen {
-    width: 150px;
-    height: 150px;
-  }
-}
-
 /* Hot Deals Section */
 .hot-deals {
   margin: 3rem 0;
@@ -959,17 +512,6 @@ footer {
   }
 }
 
-/* Responsive Hot Deals */
-@media (max-width: 768px) {
-  .deals-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hot-deals-title {
-    font-size: 1.5rem;
-  }
-}
-
 /* Market Intelligence Section */
 .market-intel {
   margin: 3rem 0;
@@ -1021,8 +563,298 @@ footer {
   line-height: 1.4;
 }
 
-/* Responsive Market Intel */
+/* Search Section */
+.search {
+  background-color: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.search input[type="text"] {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 10px;
+  color: var(--text-primary);
+  width: 40%;
+}
+
+.search input[type="text"]::placeholder {
+  color: var(--text-secondary);
+}
+
+.search button {
+  background-color: var(--accent-blue);
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.search select {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 10px;
+  color: var(--text-primary);
+  min-width: 150px;
+  width: 25%;
+}
+
+/* Game Cards Section */
+.container-jeux {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card-grid-games {
+  background-color: var(--bg-secondary);
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  transition: background-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-grid-games:hover {
+  background-color: #2d3748;
+}
+
+.card-grid-games .badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--accent-red);
+  color: var(--text-primary);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.card-grid-games .fa-gamepad {
+  font-size: 2.5rem;
+  color: var(--accent-blue);
+  margin-bottom: 15px;
+}
+
+.card-grid-games h3 {
+  color: var(--text-primary);
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.card-grid-games span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+  font-size: 0.875rem;
+}
+
+.card-grid-games .fa-star {
+  color: var(--accent-yellow);
+  font-size: 0.875rem;
+}
+
+.card-grid-games p {
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.prix-actuel {
+  color: var(--accent-green) !important;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-grid-games ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 15px 0;
+}
+
+.card-grid-games li {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+.card-grid-games button {
+  background-color: var(--accent-blue);
+  color: var(--text-primary);
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-top: auto;
+  transition: background-color 0.2s ease;
+}
+
+.card-grid-games button:hover {
+  background-color: var(--accent-blue-hover);
+}
+
+/* Footer */
+footer {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  margin-top: 60px;
+  padding: 40px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-logo {
+  color: var(--accent-blue);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.footer-text {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent-blue);
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons i {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.social-icons i:hover {
+  color: var(--accent-blue);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .container-jeux {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .container-jeux {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .logoTitle {
+    margin-left: 0;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .header-stats {
+    margin-right: 0;
+    gap: 1.5rem;
+  }
+
+  main {
+    padding: 0 20px;
+    width: 95%;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-stats {
+    gap: 2rem;
+  }
+
+  .hero-stat-number {
+    font-size: 1.5rem;
+  }
+
+  .command-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .radar-screen {
+    width: 150px;
+    height: 150px;
+  }
+
+  .deals-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hot-deals-title {
+    font-size: 1.5rem;
+  }
+
   .intel-cards {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
@@ -1034,5 +866,106 @@ footer {
 
   .intel-icon {
     font-size: 2.5rem;
+  }
+
+  .search {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .search input[type="text"] {
+    width: 100%;
+  }
+
+  .search select {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container-jeux {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .stat-number {
+    font-size: 1rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+  }
+
+  nav button {
+    padding: 8px 16px;
+    font-size: 0.875rem;
+  }
+
+  main {
+    padding: 0 15px;
+    width: 100%;
+  }
+
+  .hero {
+    padding: 2rem 0;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .search {
+    padding: 15px;
+    margin: 15px 0;
+  }
+
+  .card-grid-games {
+    padding: 15px;
+  }
+
+  .card-grid-games .fa-gamepad {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .card-grid-games h3 {
+    font-size: 1rem;
+  }
+
+  .card-grid-games .badge {
+    top: 10px;
+    right: 10px;
+    font-size: 0.75rem;
+    padding: 3px 6px;
+  }
+
+  button {
+    padding: 8px 16px;
+    font-size: 0.875rem;
+  }
+
+  .card-grid-games button {
+    padding: 10px;
+    font-size: 0.875rem;
   }
 }
