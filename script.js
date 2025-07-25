@@ -13,5 +13,14 @@ function createParticles() {
   }
 }
 
+const totalPromos = document.getElementById("totalPromos");
+const totalSaved = document.getElementById("totalSaved");
+
+const animatePromos = () => {
+  const total = parseInt(totalPromos.textContent);
+  totalPromos.textContent = total + 1;
+};
+
 // Lancer au chargement
+setInterval(animatePromos, 2000);
 createParticles();
