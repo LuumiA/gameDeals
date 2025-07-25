@@ -1,0 +1,52 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Enlever les styles par défaut des listes */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Enlever les styles par défaut des boutons */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Enlever les styles par défaut des liens */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  /* Couleurs principales */
+  --bg-primary: #111827; /* Fond général (gris très sombre) */
+  --bg-secondary: #1f2937; /* Fond des cartes/header (gris sombre) */
+  --bg-tertiary: #374151; /* Fond des éléments interactifs (gris moyen) */
+
+  /* Texte */
+  --text-primary: #ffffff; /* Texte principal (blanc) */
+  --text-secondary: #9ca3af; /* Texte secondaire (gris clair) */
+
+  /* Couleurs d'accent */
+  --accent-blue: #2563eb; /* Bleu des boutons actifs */
+  --accent-blue-hover: #1d4ed8; /* Bleu hover */
+  --accent-red: #dc2626; /* Rouge des promotions/réductions */
+  --accent-green: #10b981; /* Vert des prix */
+  --accent-yellow: #fbbf24; /* Jaune des étoiles */
+
+  /* Bordures */
+  --border-color: #4b5563; /* Couleur des bordures */
+}
