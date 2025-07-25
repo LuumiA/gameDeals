@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gameDeals</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <i class="fa-solid fa-gamepad"></i>
+      <h1 class="title">gameDeals</h1>
+      <nav>
+        <button data-filter="deals">Deals du momment</button>
+        <button data-filter="all">Tous les jeux</button>
+        <button data-filter="compare">Comparateur</button>
+      </nav>
+    </header>
+    <main>
+      <section class="promotions">
+        <i class="fa-solid fa-percent"></i>
+        <h2>Promotions en cours</h2>
+        <div class="container-promo">
+          <div class="card-grid-promotions">
+            <h3>Steam Summer Sale</h3>
+            <h4>Jusqu'a 90%</h4>
+            <p>Se termine le 31 aout</p>
+            <p>2000 jeux dispo</p>
+          </div>
+          <div class="card-grid-promotions">
+            <h3>Epic Summer Sale</h3>
+            <h4>Jusqu'a 90%</h4>
+            <p>Se termine le 31 aout</p>
+            <p>2000 jeux dispo</p>
+          </div>
+          <div class="card-grid-promotions">
+            <h3>Ubisoft Summer Sale</h3>
+            <h4>Jusqu'a 90%</h4>
+            <p>Se termine le 31 aout</p>
+            <p>2000 jeux dispo</p>
+          </div>
+        </div>
+      </section>
+      <section class="search">
+        <input type="text" placeholder="Rechercher des jeux..." />
+        <button>Rechercher</button>
+        <select name="filtre" id="filtre-select">
+          <option value="reduction">Trier par réduction</option>
+          <option value="prix">Trier par prix</option>
+          <option value="note">Trier par note</option>
+          <option value="date">Trier par date</option>
+        </select>
+        <select name="support" id="support-select">
+          <option value="all">Toutes les plateformes</option>
+          <option value="play">Playstation</option>
+          <option value="xbox">Xbox</option>
+          <option value="steam">steam</option>
+          <option value="epic">epic</option>
+        </select>
+      </section>
+      <section class="game-grid">
+        <div class="container-jeux">
+          <div class="card-grid-games">
+            <h3>Game Title</h3>
+            <p>Platform: PC</p>
+            <p>Price: $59.99</p>
+          </div>
+          <div class="card-grid-games">
+            <h3>Game Title</h3>
+            <p>Platform: PC</p>
+            <p>Price: $59.99</p>
+          </div>
+          <div class="card-grid-games">
+            <h3>Game Title</h3>
+            <p>Platform: PC</p>
+            <p>Price: $59.99</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2023 gameDeals. Tous droits réservés.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/971a280dd6.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
