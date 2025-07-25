@@ -109,20 +109,21 @@ button.active {
   padding: 10px;
   border-radius: 10px;
   width: 100%;
+  margin-top: 3%;
 }
-h3 {
+.card-grid-promotions h3 {
   color: var(--text-primary);
   font-size: 24px;
   font-weight: bold;
 }
 
-h4 {
+.card-grid-promotions h4 {
   color: var(--text-primary);
   font-size: 30px;
   font-weight: bold;
 }
 
-p {
+.card-grid-promotions p {
   color: var(--text-primary);
   font-size: 16px;
 }
