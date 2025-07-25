@@ -50,3 +50,42 @@ a {
   /* Bordures */
   --border-color: #4b5563; /* Couleur des bordures */
 }
+
+.title {
+  color: var(--accent-blue);
+}
+header {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+body {
+  background-color: var(--bg-primary);
+}
+
+.logoTitle {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: 20px;
+}
+
+button {
+  color: var(--text-primary);
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--bg-tertiary);
+}
+
+button.active {
+  background-color: var(--accent-blue);
+  color: var(--text-primary);
+}
