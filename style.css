@@ -66,6 +66,11 @@ header {
 body {
   background-color: var(--bg-primary);
 }
+main {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
 .logoTitle {
   display: flex;
@@ -126,4 +131,43 @@ button.active {
 .card-grid-promotions p {
   color: var(--text-primary);
   font-size: 16px;
+}
+
+.search {
+  background-color: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.search input[type="text"] {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 10px;
+  color: var(--text-primary);
+  width: 40%;
+}
+
+.search input[type="text"]::placeholder {
+  color: var(--text-secondary);
+}
+
+.search button {
+  background-color: var(--accent-blue);
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.search select {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 10px;
+  color: var(--text-primary);
+  min-width: 150px;
+  width: 25%;
 }
