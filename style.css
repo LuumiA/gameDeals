@@ -49,11 +49,25 @@ a {
 
   /* Bordures */
   --border-color: #4b5563; /* Couleur des bordures */
+
+  /* Nouvelles couleurs gaming flashy */
+  --accent-green-flashy: #00ff88;
+  --accent-cyan: #00d4ff;
+  --glow-green: rgba(0, 255, 136, 0.4);
+  --glow-cyan: rgba(0, 212, 255, 0.3);
 }
 
 .title {
-  color: var(--accent-blue);
+  color: var(--accent-cyan);
+  text-shadow: 0 0 20px var(--glow-cyan);
+  font-weight: bold;
 }
+.logoTitle i {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 15px var(--glow-cyan);
+  font-size: 1.5rem;
+}
+
 header {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
@@ -61,6 +75,8 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 100px;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2); /* Bordure cyan subtile */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Ombre pour le depth */
 }
 @media (max-width: 768px) {
   header {
@@ -80,6 +96,30 @@ header {
     justify-content: center;
     gap: 10px;
   }
+}
+/* Header stats styling */
+.header-stats {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--accent-green-flashy);
+  text-shadow: 0 0 15px var(--glow-green);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
 }
 
 body {
