@@ -667,3 +667,189 @@ footer {
     opacity: 0;
   }
 }
+
+/* Command Center Section */
+.command-center {
+  margin: 3rem 0;
+}
+
+.command-panels {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Live Stats Panel */
+.stats-panel {
+  background: linear-gradient(
+    135deg,
+    rgba(26, 31, 46, 0.9),
+    rgba(37, 43, 61, 0.9)
+  );
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 1rem;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
+}
+
+.panel-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.live-indicator {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-green-flashy);
+  border-radius: 50%;
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: rgba(37, 43, 61, 0.5);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent-green-flashy);
+  text-shadow: 0 0 15px var(--glow-green);
+  margin-bottom: 0.5rem;
+}
+
+.stat-desc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Deal Radar Panel */
+.radar-panel {
+  background: linear-gradient(
+    135deg,
+    rgba(37, 43, 61, 0.9),
+    rgba(26, 31, 46, 0.9)
+  );
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 1rem;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.radar-screen {
+  width: 200px;
+  height: 200px;
+  border: 2px solid var(--accent-cyan);
+  border-radius: 50%;
+  margin: 1.5rem auto;
+  position: relative;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.1), transparent);
+}
+
+.radar-sweep {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 90px;
+  background: linear-gradient(to top, transparent, var(--accent-cyan));
+  transform-origin: bottom;
+  animation: radar-sweep 3s linear infinite;
+}
+
+@keyframes radar-sweep {
+  0% {
+    transform: translate(-50%, -100%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -100%) rotate(360deg);
+  }
+}
+
+.radar-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--accent-green-flashy);
+  border-radius: 50%;
+  animation: radar-ping 2s ease-in-out infinite;
+}
+
+.radar-dot:nth-child(2) {
+  top: 30%;
+  left: 60%;
+  animation-delay: 0.5s;
+}
+.radar-dot:nth-child(3) {
+  top: 70%;
+  left: 40%;
+  animation-delay: 1s;
+}
+.radar-dot:nth-child(4) {
+  top: 50%;
+  left: 80%;
+  animation-delay: 1.5s;
+}
+
+@keyframes radar-ping {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.radar-status {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+/* Responsive Command Center */
+@media (max-width: 768px) {
+  .command-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .radar-screen {
+    width: 150px;
+    height: 150px;
+  }
+}
