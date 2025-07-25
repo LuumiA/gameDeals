@@ -181,6 +181,120 @@ button.active {
 
 .card-grid-games {
   background-color: var(--bg-secondary);
-  padding: 20px;
   border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  transition: background-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-grid-games:hover {
+  background-color: #2d3748;
+}
+
+/* Badge de réduction */
+.card-grid-games .badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--accent-red);
+  color: var(--text-primary);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+/* Icône du jeu */
+.card-grid-games .fa-gamepad {
+  font-size: 2.5rem;
+  color: var(--accent-blue);
+  margin-bottom: 15px;
+}
+
+/* Titre du jeu */
+.card-grid-games h3 {
+  color: var(--text-primary);
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+/* Note avec étoile */
+.card-grid-games span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+  font-size: 0.875rem;
+}
+
+.card-grid-games .fa-star {
+  color: var(--accent-yellow);
+  font-size: 0.875rem;
+}
+
+/* Prix */
+.card-grid-games p {
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.prix-actuel {
+  color: var(--accent-green) !important;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Liste des plateformes */
+.card-grid-games ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 15px 0;
+}
+
+.card-grid-games li {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+/* Bouton */
+.card-grid-games button {
+  background-color: var(--accent-blue);
+  color: var(--text-primary);
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-top: auto;
+  transition: background-color 0.2s ease;
+}
+
+.card-grid-games button:hover {
+  background-color: var(--accent-blue-hover);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .container-jeux {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .container-jeux {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .container-jeux {
+    grid-template-columns: 1fr;
+  }
 }
