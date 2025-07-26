@@ -4,7 +4,7 @@ Salut ! 👋
 
 Voici mon projet GameDeals, un site pour trouver les meilleures promos de jeux vidéo.
 
-## !Disclaimer pour le momment ce sont des fausses donnée je suis au debut du project donc psa encore mit d'api ou de vrai données
+## !Disclaimer pour le momment ce sont des fausses donnée je suis au debut du project donc pas encore mit d'api ou de vrai données
 
 ## 🚀 Ce que fait le site
 
