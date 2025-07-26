@@ -16,6 +16,10 @@ function createParticles() {
 const totalPromos = document.getElementById("totalPromos");
 const totalSaved = document.getElementById("totalSaved");
 const filter = document.querySelectorAll("[data-filter]");
+const hotDeals = document.querySelector(".hot-deals");
+const commandCenter = document.querySelector(".command-center");
+const gameGrid = document.querySelector(".game-grid");
+const search = document.querySelector(".search");
 
 const animatePromos = () => {
   const total = parseInt(totalPromos.textContent);
@@ -36,6 +40,22 @@ filter.forEach((btn) => {
     filter.forEach((e) => e.classList.remove("active"));
     btn.classList.add("active");
     const filterValue = btn.getAttribute("data-filter");
+    if (filterValue === "deals") {
+      hotDeals.style.display = "block";
+      commandCenter.style.display = "block";
+      gameGrid.style.display = "none";
+      search.style.display = "none";
+    } else if (filterValue === "all") {
+      hotDeals.style.display = "none";
+      commandCenter.style.display = "none";
+      gameGrid.style.display = "block";
+      search.style.display = "block";
+    } else if (filterValue === "compare") {
+      gameGrid.style.display = "block";
+      search.style.display = "block";
+      hotDeals.style.display = "none";
+      commandCenter.style.display = "none";
+    }
   });
 });
 
