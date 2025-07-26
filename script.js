@@ -15,6 +15,7 @@ function createParticles() {
 
 const totalPromos = document.getElementById("totalPromos");
 const totalSaved = document.getElementById("totalSaved");
+const filter = document.querySelectorAll("[data-filter]");
 
 const animatePromos = () => {
   const total = parseInt(totalPromos.textContent);
@@ -29,6 +30,14 @@ const animateSaved = () => {
   const newValue = Math.round((total2 + change2) * 10) / 10; // Arrondi à 1 décimale
   totalSaved.textContent = newValue + "M€";
 };
+
+filter.forEach((btn) => {
+  btn.addEventListener("click", (event) => {
+    filter.forEach((e) => e.classList.remove("active"));
+    btn.classList.add("active");
+    const filterValue = btn.getAttribute("data-filter");
+  });
+});
 
 // Lancer au chargement
 setInterval(animatePromos, 2000);
