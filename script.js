@@ -18,9 +18,18 @@ const totalSaved = document.getElementById("totalSaved");
 
 const animatePromos = () => {
   const total = parseInt(totalPromos.textContent);
-  totalPromos.textContent = total + 1;
+  const change = Math.floor(Math.random() * 5) - 2;
+  totalPromos.textContent = total + change;
+};
+
+const animateSaved = () => {
+  const newTotal = totalSaved.textContent.replace("M€", "");
+  const total2 = parseFloat(newTotal);
+  const change2 = Math.floor(Math.random() * 5) - 0.2;
+  totalSaved.textContent = total2 + change2 + "M€";
 };
 
 // Lancer au chargement
 setInterval(animatePromos, 2000);
+setInterval(animateSaved, 2000);
 createParticles();
