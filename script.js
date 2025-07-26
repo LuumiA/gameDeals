@@ -272,6 +272,7 @@ const search = document.querySelector(".search");
 // Éléments pour la recherche et filtrage
 const searchInput = document.querySelector(".search input");
 const platformSelect = document.getElementById("support-select");
+const filterSelect = document.getElementById("filter-select");
 
 // Variable qui sera définie après génération des cartes
 let gameCards;
@@ -372,6 +373,7 @@ const generateGameCards = () => {
         game.originalPrice
       }</span></p>
       <p><span class="prix-actuel">$${game.currentPrice}</span></p>
+      <p>⭐ ${game.rating}/5</p>
       <ul>
         <li>${game.platforms[0] || ""}</li>
         <li>${game.platforms[1] || ""}</li>
@@ -457,6 +459,22 @@ const setupPlatformFilter = () => {
   });
 };
 
+// Filtre par prix/date/notes
+const setupSortFilter = () => {
+  filterSelect.addEventListener("change", () => {
+    const selectedSort = filterSelect.value.toLowerCase();
+
+    if (selectedSort === "prix") {
+      games.sort((a, b) => a.currentPrice - b.currentPrice);
+    } else if (selectedSort === "note") {
+      games.sort((a, b) => b.rating - a.rating);
+    } else if (selectedSort === "reduction") {
+      games.sort((a, b) => b.discount - a.discount);
+    }
+    generateGameCards();
+  });
+};
+
 // ====================================
 // INITIALISATION DE L'APPLICATION
 // ====================================
@@ -471,6 +489,7 @@ const initApp = () => {
 
   // 3. Configure les systèmes de filtrage (APRÈS génération des cartes)
   setupSearchFilter();
+  setupSortFilter();
   setupPlatformFilter();
 
   // 4. Lance les animations des stats
@@ -480,5 +499,5 @@ const initApp = () => {
   setInterval(animateCommandStats, 2000);
 };
 
-// GO ! 🚀
+// GO !
 initApp();
