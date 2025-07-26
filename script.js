@@ -22,6 +22,8 @@ const gameGrid = document.querySelector(".game-grid");
 const search = document.querySelector(".search");
 const heroStats = document.querySelectorAll(".hero-stat-number");
 const commandStats = document.querySelectorAll(".stat-value");
+const searchInput = document.querySelector(".search input");
+const cardGame = document.querySelectorAll(".card-grid-games");
 
 const animatePromos = () => {
   const total = parseInt(totalPromos.textContent);
@@ -91,6 +93,19 @@ const animateCommandStats = () => {
   const changeCurrent4 = Math.floor(Math.random() * 5) - 2;
   commandStats[3].textContent = current4 + changeCurrent4;
 };
+
+searchInput.addEventListener("input", () => {
+  const inputValue = searchInput.value.toLowerCase();
+  cardGame.forEach((card) => {
+    const h3 = card.querySelector("h3");
+    const gameTitle = h3.textContent.toLowerCase();
+    if (gameTitle.includes(inputValue)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
 
 // Lancer au chargement
 setInterval(animatePromos, 2000);
