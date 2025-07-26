@@ -391,6 +391,10 @@ const generateGameCards = () => {
     btn.addEventListener("click", () => {
       if (!gamesChoice.includes(games[index]) && gamesChoice.length < 3) {
         gamesChoice.push(games[index]);
+        btn.style.backgroundColor = "#4CAF50";
+      } else if (gamesChoice.includes(games[index])) {
+        gamesChoice = gamesChoice.filter((game) => game !== games[index]);
+        btn.style.backgroundColor = "";
       }
       console.log(gamesChoice);
     });
