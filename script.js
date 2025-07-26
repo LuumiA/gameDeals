@@ -24,13 +24,19 @@ platformSelect.addEventListener("change", () => {
     if (selectedPlatform === "all") {
       card.style.display = "block";
     } else {
+      let found = false;
+
       for (let platforms of game.platforms) {
         if (platforms.toLowerCase() === selectedPlatform) {
-          card.style.display = "block";
+          found = true;
           break;
-        } else {
-          card.style.display = "none";
         }
+      }
+
+      if (found) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
       }
     }
   });
