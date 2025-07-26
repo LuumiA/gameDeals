@@ -173,9 +173,37 @@ searchInput.addEventListener("input", () => {
   });
 });
 
+const generateGameCards = () => {
+  const container = document.querySelector(".container-jeux");
+  container.innerHTML = "";
+
+  games.forEach((game) => {
+    const gameCard = document.createElement("div");
+    gameCard.className = "card-grid-games";
+    gameCard.innerHTML = ` <div class="badge">-${game.discount}%</div>
+            <i class="fa-solid fa-gamepad"></i>
+            <h3>${game.title}</h3>
+            <span style="font-size: 2.5rem">${game.icon}</span> 
+            <p>Platform: ${game.platforms.join(", ")}</p>
+            <p><span style="text-decoration: line-through">$${
+              game.originalPrice
+            }</span></p>
+            <p><span class="prix-actuel">$${game.currentPrice}</span></p>
+            <ul>
+              <li>${game.platforms[0]}</li>
+              <li>${game.platforms[1]}</li>
+              <li>${game.platforms[2] || ""}</li>
+            </ul>
+            <button>Voir les offres</button>
+          </div>`;
+    container.appendChild(gameCard);
+  });
+};
+
 // Lancer au chargement
+createParticles();
+generateGameCards();
 setInterval(animatePromos, 2000);
 setInterval(animateSaved, 2000);
 setInterval(animatedHeroStats, 2000);
 setInterval(animateCommandStats, 2000);
-createParticles();
