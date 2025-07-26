@@ -698,6 +698,7 @@ header {
   font-weight: 600;
   margin-top: auto;
   transition: background-color 0.2s ease;
+  margin-top: 5px;
 }
 
 .card-grid-games button:hover {
