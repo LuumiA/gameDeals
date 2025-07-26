@@ -10,7 +10,6 @@ const search = document.querySelector(".search");
 const heroStats = document.querySelectorAll(".hero-stat-number");
 const commandStats = document.querySelectorAll(".stat-value");
 const searchInput = document.querySelector(".search input");
-const cardGame = document.querySelectorAll(".card-grid-games");
 
 const games = [
   {
@@ -203,6 +202,7 @@ const generateGameCards = () => {
 // Lancer au chargement
 createParticles();
 generateGameCards();
+const cardGame = document.querySelectorAll(".card-grid-games");
 setInterval(animatePromos, 2000);
 setInterval(animateSaved, 2000);
 setInterval(animatedHeroStats, 2000);
