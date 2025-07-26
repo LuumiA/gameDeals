@@ -20,6 +20,7 @@ const hotDeals = document.querySelector(".hot-deals");
 const commandCenter = document.querySelector(".command-center");
 const gameGrid = document.querySelector(".game-grid");
 const search = document.querySelector(".search");
+const heroStats = document.querySelectorAll(".hero-stat-number");
 
 const animatePromos = () => {
   const total = parseInt(totalPromos.textContent);
@@ -59,7 +60,22 @@ filter.forEach((btn) => {
   });
 });
 
+const animatedHeroStats = () => {
+  const current1 = parseInt(heroStats[0].textContent);
+  const changeCurrent1 = Math.floor(Math.random() * 5) - 2;
+  heroStats[0].textContent = current1 + changeCurrent1;
+  const current2 = heroStats[1].textContent.replace("M€", "");
+  const totalCurrent2 = parseFloat(current2);
+  const change2 = Math.floor(Math.random() * 5) - 0.2;
+  const newValue = Math.round((totalCurrent2 + change2) * 10) / 10; // Arrondi à 1 décimale
+  heroStats[1].textContent = newValue + "M€";
+  const current3 = parseInt(heroStats[2].textContent);
+  const changeCurrent3 = Math.floor(Math.random() * 5) - 2;
+  heroStats[2].textContent = current3 + changeCurrent3;
+};
+
 // Lancer au chargement
 setInterval(animatePromos, 2000);
 setInterval(animateSaved, 2000);
+setInterval(animatedHeroStats, 2000);
 createParticles();
