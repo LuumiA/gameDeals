@@ -1,17 +1,4 @@
 // @ts-nocheck
-// Créer les particules
-function createParticles() {
-  const particlesContainer = document.getElementById("particles");
-  for (let i = 0; i < 80; i++) {
-    // Plus de particules !
-    const particle = document.createElement("div");
-    particle.className = "particle";
-    particle.style.left = Math.random() * 100 + "%";
-    particle.style.animationDelay = Math.random() * 15 + "s";
-    particle.style.animationDuration = Math.random() * 10 + 10 + "s"; // Durées variées
-    particlesContainer.appendChild(particle);
-  }
-}
 
 const totalPromos = document.getElementById("totalPromos");
 const totalSaved = document.getElementById("totalSaved");
@@ -24,6 +11,85 @@ const heroStats = document.querySelectorAll(".hero-stat-number");
 const commandStats = document.querySelectorAll(".stat-value");
 const searchInput = document.querySelector(".search input");
 const cardGame = document.querySelectorAll(".card-grid-games");
+
+const games = [
+  {
+    title: "Cyberpunk 2077",
+    originalPrice: 59.99,
+    currentPrice: 19.99,
+    discount: 67,
+    rating: 4.2,
+    platforms: ["Steam", "Epic", "GOG"],
+    icon: "🎮",
+  },
+  {
+    title: "The Witcher 3",
+    originalPrice: 49.99,
+    currentPrice: 29.99,
+    discount: 40,
+    rating: 4.8,
+    platforms: ["Steam", "Epic"],
+    icon: "⚔️",
+  },
+  {
+    title: "DOOM Eternal",
+    originalPrice: 59.99,
+    currentPrice: 39.99,
+    discount: 33,
+    rating: 4.5,
+    platforms: ["Steam", "Bethesda"],
+    icon: "🎮",
+  },
+  {
+    title: "Hades",
+    originalPrice: 24.99,
+    currentPrice: 19.99,
+    discount: 20,
+    rating: 4.9,
+    platforms: ["Steam", "Epic"],
+    icon: "⚔️",
+  },
+  {
+    title: "Minecraft",
+    originalPrice: 19.99,
+    currentPrice: 14.99,
+    discount: 25,
+    rating: 4.9,
+    platforms: ["Microsoft"],
+    icon: "⛏️",
+  },
+  {
+    title: "GTA5",
+    originalPrice: 29.99,
+    currentPrice: 19.99,
+    discount: 25,
+    rating: 4.9,
+    platforms: ["Rockstar", "Steam"],
+    icon: "🎮",
+  },
+  {
+    title: "Fifa25",
+    originalPrice: 69.99,
+    currentPrice: 39.99,
+    discount: 25,
+    rating: 4.9,
+    platforms: ["EA", "playstation", "Xbox"],
+    icon: "🎮",
+  },
+];
+
+function createParticles() {
+  const particlesContainer = document.getElementById("particles");
+  for (let i = 0; i < 80; i++) {
+    // Plus de particules !
+    const particle = document.createElement("div");
+    particle.className = "particle";
+    particle.style.left = Math.random() * 100 + "%";
+    particle.style.animationDelay = Math.random() * 15 + "s";
+    particle.style.animationDuration = Math.random() * 10 + 10 + "s"; // Durées variées
+    particlesContainer.appendChild(particle);
+  }
+}
 
 const animatePromos = () => {
   const total = parseInt(totalPromos.textContent);
