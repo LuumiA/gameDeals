@@ -276,6 +276,8 @@ const filterSelect = document.getElementById("filter-select");
 
 // Variable qui sera définie après génération des cartes
 let gameCards;
+// Variable pour stocker les jeux sélectionnés pour comparaison
+let gamesChoice = [];
 
 // ====================================
 // FONCTIONS UTILITAIRES
@@ -377,13 +379,22 @@ const generateGameCards = () => {
       <ul>
         <li>${game.platforms[0] || ""}</li>
         <li>${game.platforms[1] || ""}</li>
-        <li>${game.platforms[2] || ""}</li>
-      </ul>
+        <li>${game.platforms[2] || ""}</li> 
+      </ul> 
       <button>Voir les offres</button>
+      <button class="btn-compare">Comparer</button>
     `;
     container.appendChild(gameCard);
   });
-
+  const allbuttonCompare = document.querySelectorAll(".btn-compare");
+  allbuttonCompare.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      if (!gamesChoice.includes(games[index]) && gamesChoice.length < 3) {
+        gamesChoice.push(games[index]);
+      }
+      console.log(gamesChoice);
+    });
+  });
   // IMPORTANT : Récupérer les cartes APRÈS les avoir créées
   gameCards = document.querySelectorAll(".card-grid-games");
 };
