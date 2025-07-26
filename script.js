@@ -21,6 +21,7 @@ const commandCenter = document.querySelector(".command-center");
 const gameGrid = document.querySelector(".game-grid");
 const search = document.querySelector(".search");
 const heroStats = document.querySelectorAll(".hero-stat-number");
+const commandStats = document.querySelectorAll(".stat-value");
 
 const animatePromos = () => {
   const total = parseInt(totalPromos.textContent);
@@ -74,8 +75,26 @@ const animatedHeroStats = () => {
   heroStats[2].textContent = current3 + changeCurrent3;
 };
 
+const animateCommandStats = () => {
+  const current1 = parseInt(commandStats[0].textContent);
+  const changeCurrent1 = Math.floor(Math.random() * 5) - 2;
+  commandStats[0].textContent = current1 + changeCurrent1;
+  const current2 = parseInt(commandStats[1].textContent);
+  const changeCurrent2 = Math.floor(Math.random() * 5) - 2;
+  commandStats[1].textContent = current2 + changeCurrent2;
+  const current3 = commandStats[2].textContent.replace("%", "");
+  const totalCurrent3 = parseFloat(current3);
+  const change3 = Math.floor(Math.random() * 5) - 0.2;
+  const newValue = Math.round((totalCurrent3 + change3) * 10) / 10; // Arrondi à 1 décimale
+  commandStats[2].textContent = newValue + "%";
+  const current4 = parseInt(commandStats[3].textContent);
+  const changeCurrent4 = Math.floor(Math.random() * 5) - 2;
+  commandStats[3].textContent = current4 + changeCurrent4;
+};
+
 // Lancer au chargement
 setInterval(animatePromos, 2000);
 setInterval(animateSaved, 2000);
 setInterval(animatedHeroStats, 2000);
+setInterval(animateCommandStats, 2000);
 createParticles();
