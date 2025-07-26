@@ -1,46 +1,10 @@
 // @ts-nocheck
 
-const totalPromos = document.getElementById("totalPromos");
-const totalSaved = document.getElementById("totalSaved");
-const filter = document.querySelectorAll("[data-filter]");
-const hotDeals = document.querySelector(".hot-deals");
-const commandCenter = document.querySelector(".command-center");
-const gameGrid = document.querySelector(".game-grid");
-const search = document.querySelector(".search");
-const heroStats = document.querySelectorAll(".hero-stat-number");
-const commandStats = document.querySelectorAll(".stat-value");
-const searchInput = document.querySelector(".search input");
-const platformSelect = document.getElementById("support-select");
+// ====================================
+// CONFIGURATION ET DONNÉES
+// ====================================
 
-platformSelect.addEventListener("change", () => {
-  const selectedPlatform = platformSelect.value.toLowerCase();
-  console.log("Valeur sélectionnée:", selectedPlatform);
-
-  const gameCards = document.querySelectorAll(".card-grid-games");
-
-  gameCards.forEach((card, index) => {
-    const game = games[index];
-
-    if (selectedPlatform === "all") {
-      card.style.display = "block";
-    } else {
-      let found = false;
-
-      for (let platforms of game.platforms) {
-        if (platforms.toLowerCase() === selectedPlatform) {
-          found = true;
-          break;
-        }
-      }
-
-      if (found) {
-        card.style.display = "block";
-      } else {
-        card.style.display = "none";
-      }
-    }
-  });
-});
+// Base de données des jeux - ici on stocke tous nos jeux avec leurs infos
 
 const games = [
   {
@@ -108,133 +72,233 @@ const games = [
   },
 ];
 
+// ====================================
+// SÉLECTEURS DOM - On récupère tous les éléments
+// ====================================
+
+// Éléments pour les animations de stats
+const totalPromos = document.getElementById("totalPromos");
+const totalSaved = document.getElementById("totalSaved");
+const heroStats = document.querySelectorAll(".hero-stat-number");
+const commandStats = document.querySelectorAll(".stat-value");
+
+// Éléments pour la navigation et filtres
+const filter = document.querySelectorAll("[data-filter]");
+const hotDeals = document.querySelector(".hot-deals");
+const commandCenter = document.querySelector(".command-center");
+const gameGrid = document.querySelector(".game-grid");
+const search = document.querySelector(".search");
+
+// Éléments pour la recherche et filtrage
+const searchInput = document.querySelector(".search input");
+const platformSelect = document.getElementById("support-select");
+
+// Variable qui sera définie après génération des cartes
+let gameCards;
+
+// ====================================
+// FONCTIONS UTILITAIRES
+// ====================================
+
+// Génère un nombre aléatoire entre min et max pour les animations
+const getRandomChange = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1)) + min;
+
+// ====================================
+// FONCTIONS D'ANIMATION DES STATS
+// ====================================
+
+// Anime le compteur des promotions dans le header
+const animatePromos = () => {
+  const total = parseInt(totalPromos.textContent);
+  const change = getRandomChange(-2, 2); // Entre -2 et +2
+  totalPromos.textContent = total + change;
+};
+
+// Anime le compteur d'argent économisé (format M€)
+const animateSaved = () => {
+  const newTotal = totalSaved.textContent.replace("M€", "");
+  const total2 = parseFloat(newTotal);
+  const change2 = getRandomChange(-2, 2) * 0.1; // Petits changements décimaux
+  const newValue = Math.round((total2 + change2) * 10) / 10;
+  totalSaved.textContent = newValue + "M€";
+};
+
+// Anime les 3 stats de la section hero
+const animatedHeroStats = () => {
+  // Premier stat : nombre entier
+  const current1 = parseInt(heroStats[0].textContent);
+  heroStats[0].textContent = current1 + getRandomChange(-2, 2);
+
+  // Deuxième stat : format M€
+  const current2 = heroStats[1].textContent.replace("M€", "");
+  const totalCurrent2 = parseFloat(current2);
+  const change2 = getRandomChange(-2, 2) * 0.1;
+  const newValue = Math.round((totalCurrent2 + change2) * 10) / 10;
+  heroStats[1].textContent = newValue + "M€";
+
+  // Troisième stat : nombre entier
+  const current3 = parseInt(heroStats[2].textContent);
+  heroStats[2].textContent = current3 + getRandomChange(-2, 2);
+};
+
+// Anime les 4 stats du command center
+const animateCommandStats = () => {
+  // Stats 1, 2, 4 : nombres entiers
+  [0, 1, 3].forEach((index) => {
+    const current = parseInt(commandStats[index].textContent);
+    commandStats[index].textContent = current + getRandomChange(-2, 2);
+  });
+
+  // Stat 3 : pourcentage avec décimales
+  const current3 = commandStats[2].textContent.replace("%", "");
+  const totalCurrent3 = parseFloat(current3);
+  const change3 = getRandomChange(-2, 2) * 0.1;
+  const newValue = Math.round((totalCurrent3 + change3) * 10) / 10;
+  commandStats[2].textContent = newValue + "%";
+};
+
+// ====================================
+// GÉNÉRATION DU CONTENU DYNAMIQUE
+// ====================================
+
+// Crée les particules d'arrière-plan pour l'effet visuel
 function createParticles() {
   const particlesContainer = document.getElementById("particles");
   for (let i = 0; i < 80; i++) {
-    // Plus de particules !
     const particle = document.createElement("div");
     particle.className = "particle";
     particle.style.left = Math.random() * 100 + "%";
     particle.style.animationDelay = Math.random() * 15 + "s";
-    particle.style.animationDuration = Math.random() * 10 + 10 + "s"; // Durées variées
+    particle.style.animationDuration = Math.random() * 10 + 10 + "s";
     particlesContainer.appendChild(particle);
   }
 }
 
-const animatePromos = () => {
-  const total = parseInt(totalPromos.textContent);
-  const change = Math.floor(Math.random() * 5) - 2;
-  totalPromos.textContent = total + change;
-};
-
-const animateSaved = () => {
-  const newTotal = totalSaved.textContent.replace("M€", "");
-  const total2 = parseFloat(newTotal);
-  const change2 = Math.floor(Math.random() * 5) - 0.2;
-  const newValue = Math.round((total2 + change2) * 10) / 10; // Arrondi à 1 décimale
-  totalSaved.textContent = newValue + "M€";
-};
-
-filter.forEach((btn) => {
-  btn.addEventListener("click", (event) => {
-    filter.forEach((e) => e.classList.remove("active"));
-    btn.classList.add("active");
-    const filterValue = btn.getAttribute("data-filter");
-    if (filterValue === "deals") {
-      hotDeals.style.display = "block";
-      commandCenter.style.display = "block";
-      gameGrid.style.display = "none";
-      search.style.display = "none";
-    } else if (filterValue === "all") {
-      hotDeals.style.display = "none";
-      commandCenter.style.display = "none";
-      gameGrid.style.display = "block";
-      search.style.display = "block";
-    } else if (filterValue === "compare") {
-      gameGrid.style.display = "block";
-      search.style.display = "block";
-      hotDeals.style.display = "none";
-      commandCenter.style.display = "none";
-    }
-  });
-});
-
-const animatedHeroStats = () => {
-  const current1 = parseInt(heroStats[0].textContent);
-  const changeCurrent1 = Math.floor(Math.random() * 5) - 2;
-  heroStats[0].textContent = current1 + changeCurrent1;
-  const current2 = heroStats[1].textContent.replace("M€", "");
-  const totalCurrent2 = parseFloat(current2);
-  const change2 = Math.floor(Math.random() * 5) - 0.2;
-  const newValue = Math.round((totalCurrent2 + change2) * 10) / 10; // Arrondi à 1 décimale
-  heroStats[1].textContent = newValue + "M€";
-  const current3 = parseInt(heroStats[2].textContent);
-  const changeCurrent3 = Math.floor(Math.random() * 5) - 2;
-  heroStats[2].textContent = current3 + changeCurrent3;
-};
-
-const animateCommandStats = () => {
-  const current1 = parseInt(commandStats[0].textContent);
-  const changeCurrent1 = Math.floor(Math.random() * 5) - 2;
-  commandStats[0].textContent = current1 + changeCurrent1;
-  const current2 = parseInt(commandStats[1].textContent);
-  const changeCurrent2 = Math.floor(Math.random() * 5) - 2;
-  commandStats[1].textContent = current2 + changeCurrent2;
-  const current3 = commandStats[2].textContent.replace("%", "");
-  const totalCurrent3 = parseFloat(current3);
-  const change3 = Math.floor(Math.random() * 5) - 0.2;
-  const newValue = Math.round((totalCurrent3 + change3) * 10) / 10; // Arrondi à 1 décimale
-  commandStats[2].textContent = newValue + "%";
-  const current4 = parseInt(commandStats[3].textContent);
-  const changeCurrent4 = Math.floor(Math.random() * 5) - 2;
-  commandStats[3].textContent = current4 + changeCurrent4;
-};
-
-searchInput.addEventListener("input", () => {
-  const inputValue = searchInput.value.toLowerCase();
-  cardGame.forEach((card) => {
-    const h3 = card.querySelector("h3");
-    const gameTitle = h3.textContent.toLowerCase();
-    if (gameTitle.includes(inputValue)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-  });
-});
-
+// Génère les cartes de jeux à partir des données
 const generateGameCards = () => {
   const container = document.querySelector(".container-jeux");
-  container.innerHTML = "";
+  container.innerHTML = ""; // Vide le container
 
   games.forEach((game) => {
     const gameCard = document.createElement("div");
     gameCard.className = "card-grid-games";
-    gameCard.innerHTML = ` <div class="badge">-${game.discount}%</div>
-            <i class="fa-solid fa-gamepad"></i>
-            <h3>${game.title}</h3>
-            <span style="font-size: 2.5rem">${game.icon}</span> 
-            <p>Platform: ${game.platforms.join(", ")}</p>
-            <p><span style="text-decoration: line-through">$${
-              game.originalPrice
-            }</span></p>
-            <p><span class="prix-actuel">$${game.currentPrice}</span></p>
-            <ul>
-              <li>${game.platforms[0]}</li>
-              <li>${game.platforms[1]}</li>
-              <li>${game.platforms[2] || ""}</li>
-            </ul>
-            <button>Voir les offres</button>
-          </div>`;
+    gameCard.innerHTML = `
+      <div class="badge">-${game.discount}%</div>
+      <span style="font-size: 2.5rem">${game.icon}</span> 
+      <h3>${game.title}</h3>
+      <p>Platform: ${game.platforms.join(", ")}</p>
+      <p><span style="text-decoration: line-through">$${
+        game.originalPrice
+      }</span></p>
+      <p><span class="prix-actuel">$${game.currentPrice}</span></p>
+      <ul>
+        <li>${game.platforms[0] || ""}</li>
+        <li>${game.platforms[1] || ""}</li>
+        <li>${game.platforms[2] || ""}</li>
+      </ul>
+      <button>Voir les offres</button>
+    `;
     container.appendChild(gameCard);
+  });
+
+  // IMPORTANT : Récupérer les cartes APRÈS les avoir créées
+  gameCards = document.querySelectorAll(".card-grid-games");
+};
+
+// ====================================
+// GESTION DE LA NAVIGATION
+// ====================================
+
+// Gère le changement d'onglets (Deals/Tous les jeux/Comparateur)
+filter.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // Enlève la classe active de tous les boutons
+    filter.forEach((e) => e.classList.remove("active"));
+    // Ajoute la classe active au bouton cliqué
+    btn.classList.add("active");
+
+    const filterValue = btn.getAttribute("data-filter");
+
+    // Affiche/masque les sections selon l'onglet
+    if (filterValue === "deals") {
+      // Mode "Deals du moment" : affiche command center et hot deals
+      showSections([hotDeals, commandCenter], [gameGrid, search]);
+    } else if (filterValue === "all") {
+      // Mode "Tous les jeux" : affiche la grille et la recherche
+      showSections([gameGrid, search], [hotDeals, commandCenter]);
+    } else if (filterValue === "compare") {
+      // Mode "Comparateur" : comme tous les jeux pour l'instant
+      showSections([gameGrid, search], [hotDeals, commandCenter]);
+    }
+  });
+});
+
+// Fonction utilitaire pour afficher/masquer des sections
+const showSections = (toShow, toHide) => {
+  toShow.forEach((section) => (section.style.display = "block"));
+  toHide.forEach((section) => (section.style.display = "none"));
+};
+
+// ====================================
+// SYSTÈME DE FILTRAGE ET RECHERCHE
+// ====================================
+
+// Recherche par nom de jeu en temps réel
+const setupSearchFilter = () => {
+  searchInput.addEventListener("input", () => {
+    const inputValue = searchInput.value.toLowerCase();
+
+    gameCards.forEach((card) => {
+      const gameTitle = card.querySelector("h3").textContent.toLowerCase();
+      card.style.display = gameTitle.includes(inputValue) ? "block" : "none";
+    });
   });
 };
 
-// Lancer au chargement
-createParticles();
-generateGameCards();
-const cardGame = document.querySelectorAll(".card-grid-games");
-setInterval(animatePromos, 2000);
-setInterval(animateSaved, 2000);
-setInterval(animatedHeroStats, 2000);
-setInterval(animateCommandStats, 2000);
+// Filtre par plateforme
+const setupPlatformFilter = () => {
+  platformSelect.addEventListener("change", () => {
+    const selectedPlatform = platformSelect.value.toLowerCase();
+
+    gameCards.forEach((card, index) => {
+      const game = games[index];
+
+      if (selectedPlatform === "all") {
+        card.style.display = "block";
+      } else {
+        // Vérifie si le jeu est disponible sur la plateforme sélectionnée
+        const isAvailable = game.platforms.some(
+          (platform) => platform.toLowerCase() === selectedPlatform
+        );
+        card.style.display = isAvailable ? "block" : "none";
+      }
+    });
+  });
+};
+
+// ====================================
+// INITIALISATION DE L'APPLICATION
+// ====================================
+
+// Lance tout au chargement de la page
+const initApp = () => {
+  // 1. Crée les effets visuels
+  createParticles();
+
+  // 2. Génère le contenu dynamique
+  generateGameCards();
+
+  // 3. Configure les systèmes de filtrage (APRÈS génération des cartes)
+  setupSearchFilter();
+  setupPlatformFilter();
+
+  // 4. Lance les animations des stats
+  setInterval(animatePromos, 2000);
+  setInterval(animateSaved, 2000);
+  setInterval(animatedHeroStats, 2000);
+  setInterval(animateCommandStats, 2000);
+};
+
+// GO ! 🚀
+initApp();
