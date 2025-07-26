@@ -10,6 +10,31 @@ const search = document.querySelector(".search");
 const heroStats = document.querySelectorAll(".hero-stat-number");
 const commandStats = document.querySelectorAll(".stat-value");
 const searchInput = document.querySelector(".search input");
+const platformSelect = document.getElementById("support-select");
+
+platformSelect.addEventListener("change", () => {
+  const selectedPlatform = platformSelect.value.toLowerCase();
+  console.log("Valeur sélectionnée:", selectedPlatform);
+
+  const gameCards = document.querySelectorAll(".card-grid-games");
+
+  gameCards.forEach((card, index) => {
+    const game = games[index];
+
+    if (selectedPlatform === "all") {
+      card.style.display = "block";
+    } else {
+      for (let platforms of game.platforms) {
+        if (platforms.toLowerCase() === selectedPlatform) {
+          card.style.display = "block";
+          break;
+        } else {
+          card.style.display = "none";
+        }
+      }
+    }
+  });
+});
 
 const games = [
   {
