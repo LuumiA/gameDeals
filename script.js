@@ -26,7 +26,8 @@ const animateSaved = () => {
   const newTotal = totalSaved.textContent.replace("M€", "");
   const total2 = parseFloat(newTotal);
   const change2 = Math.floor(Math.random() * 5) - 0.2;
-  totalSaved.textContent = total2 + change2 + "M€";
+  const newValue = Math.round((total2 + change2) * 10) / 10; // Arrondi à 1 décimale
+  totalSaved.textContent = newValue + "M€";
 };
 
 // Lancer au chargement
