@@ -236,7 +236,7 @@ header {
     opacity: 0.4;
   }
   100% {
-    transform: translateY(-10vh) rotate(360deg);
+    transform: translateY(0vh) rotate(360deg);
     opacity: 0;
   }
 }
