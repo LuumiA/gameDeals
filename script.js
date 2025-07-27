@@ -268,6 +268,7 @@ const hotDeals = document.querySelector(".hot-deals");
 const commandCenter = document.querySelector(".command-center");
 const gameGrid = document.querySelector(".game-grid");
 const search = document.querySelector(".search");
+const compare = document.querySelector(".compare");
 
 // Éléments pour la recherche et filtrage
 const searchInput = document.querySelector(".search input");
@@ -396,7 +397,6 @@ const generateGameCards = () => {
         gamesChoice = gamesChoice.filter((game) => game !== games[index]);
         btn.style.backgroundColor = "";
       }
-      console.log(gamesChoice);
     });
   });
   // IMPORTANT : Récupérer les cartes APRÈS les avoir créées
@@ -426,7 +426,7 @@ filter.forEach((btn) => {
       showSections([gameGrid, search], [hotDeals, commandCenter]);
     } else if (filterValue === "compare") {
       // Mode "Comparateur" : comme tous les jeux pour l'instant
-      showSections([gameGrid, search], [hotDeals, commandCenter]);
+      showSections([compare], [hotDeals, commandCenter, gameGrid, search]);
     }
   });
 });
