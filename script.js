@@ -383,21 +383,9 @@ const generateGameCards = () => {
         <li>${game.platforms[2] || ""}</li> 
       </ul> 
       <button>Voir les offres</button>
-      <button class="btn-compare">Comparer</button>
+     
     `;
     container.appendChild(gameCard);
-  });
-  const allbuttonCompare = document.querySelectorAll(".btn-compare");
-  allbuttonCompare.forEach((btn, index) => {
-    btn.addEventListener("click", () => {
-      if (!gamesChoice.includes(games[index]) && gamesChoice.length < 3) {
-        gamesChoice.push(games[index]);
-        btn.style.backgroundColor = "#4CAF50";
-      } else if (gamesChoice.includes(games[index])) {
-        gamesChoice = gamesChoice.filter((game) => game !== games[index]);
-        btn.style.backgroundColor = "";
-      }
-    });
   });
   // IMPORTANT : Récupérer les cartes APRÈS les avoir créées
   gameCards = document.querySelectorAll(".card-grid-games");
@@ -432,12 +420,15 @@ filter.forEach((btn) => {
       if (gamesChoice.length === 0) {
         container.innerHTML = `<p>Veuillez séléctionnez 3 jeux pour les comparer.</p>
         <button class="valider">OK</button>`;
-      }
-      gamesChoice.forEach((game) => {
-        const compareCard = document.createElement("div");
-        compareCard.className = "compare-card";
-        compareCard.innerHTML = `
-         <span style="font-size: 2.5rem">${game.icon}</span> 
+        const buttonValider = document.querySelector(".valider");
+        buttonValider.addEventListener("click", () => {
+          container.innerHTML = "";
+          games.forEach((game) => {
+            const compareCard = document.createElement("div");
+            compareCard.className = "compare-card";
+            compareCard.innerHTML = `
+      <div class="badge">-${game.discount}%</div>
+      <span style="font-size: 2.5rem">${game.icon}</span> 
       <h3>${game.title}</h3>
       <p>Platform: ${game.platforms.join(", ")}</p>
       <p><span style="text-decoration: line-through">$${
@@ -447,10 +438,33 @@ filter.forEach((btn) => {
       <p>⭐ ${game.rating}/5</p>
       <ul>
         <li>${game.platforms[0] || ""}</li>
-        <li>${game.platforms[1] || ""}</li> 
-      </ul>`;
-        container.appendChild(compareCard);
-      });
+        <li>${game.platforms[1] || ""}</li>
+        <li>${game.platforms[2] || ""}</li> 
+      </ul> 
+      <button>Voir les offres</button>
+      <button class="btn-compare">Comparer</button>
+    `;
+            container.appendChild(compareCard);
+          });
+          const allbuttonCompare = document.querySelectorAll(".btn-compare");
+          allbuttonCompare.forEach((btn, index) => {
+            btn.addEventListener("click", () => {
+              if (
+                !gamesChoice.includes(games[index]) &&
+                gamesChoice.length < 3
+              ) {
+                gamesChoice.push(games[index]);
+                btn.style.backgroundColor = "#4CAF50";
+              } else if (gamesChoice.includes(games[index])) {
+                gamesChoice = gamesChoice.filter(
+                  (game) => game !== games[index]
+                );
+                btn.style.backgroundColor = "";
+              }
+            });
+          });
+        });
+      }
     }
   });
 });
