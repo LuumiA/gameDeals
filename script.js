@@ -429,6 +429,10 @@ filter.forEach((btn) => {
       showSections([compare], [hotDeals, commandCenter, gameGrid, search]);
       const container = document.querySelector(".compare");
       container.innerHTML = "";
+      if (gamesChoice.length === 0) {
+        container.innerHTML = `<p>Veuillez séléctionnez 3 jeux pour les comparer.</p>
+        <button class="valider">OK</button>`;
+      }
       gamesChoice.forEach((game) => {
         const compareCard = document.createElement("div");
         compareCard.className = "compare-card";
@@ -443,8 +447,7 @@ filter.forEach((btn) => {
       <p>⭐ ${game.rating}/5</p>
       <ul>
         <li>${game.platforms[0] || ""}</li>
-        <li>${game.platforms[1] || ""}</li>
-        <li>${game.platforms[2] || ""}</li> 
+        <li>${game.platforms[1] || ""}</li> 
       </ul>`;
         container.appendChild(compareCard);
       });
