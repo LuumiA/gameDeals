@@ -791,6 +791,20 @@ header {
   border-radius: 4px;
   font-size: 0.75rem;
 }
+.compare-card button {
+  background-color: var(--accent-blue);
+  color: var(--text-primary);
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-top: auto;
+  transition: background-color 0.2s ease;
+  margin-top: 5px;
+}
+
+.compare-card button:hover {
+  background-color: var(--accent-blue-hover);
+}
 
 /* Footer */
 footer {
