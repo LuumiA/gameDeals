@@ -705,6 +705,11 @@ header {
   background-color: var(--accent-blue-hover);
 }
 
+/* Compare Section */
+.compare {
+  display: none;
+}
+
 /* Footer */
 footer {
   background-color: var(--bg-secondary);
