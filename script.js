@@ -427,13 +427,34 @@ filter.forEach((btn) => {
     } else if (filterValue === "compare") {
       // Mode "Comparateur" : comme tous les jeux pour l'instant
       showSections([compare], [hotDeals, commandCenter, gameGrid, search]);
+      const container = document.querySelector(".compare");
+      container.innerHTML = "";
+      gamesChoice.forEach((game) => {
+        const compareCard = document.createElement("div");
+        compareCard.className = "compare-card";
+        compareCard.innerHTML = `
+         <span style="font-size: 2.5rem">${game.icon}</span> 
+      <h3>${game.title}</h3>
+      <p>Platform: ${game.platforms.join(", ")}</p>
+      <p><span style="text-decoration: line-through">$${
+        game.originalPrice
+      }</span></p>
+      <p><span class="prix-actuel">$${game.currentPrice}</span></p>
+      <p>⭐ ${game.rating}/5</p>
+      <ul>
+        <li>${game.platforms[0] || ""}</li>
+        <li>${game.platforms[1] || ""}</li>
+        <li>${game.platforms[2] || ""}</li> 
+      </ul>`;
+        container.appendChild(compareCard);
+      });
     }
   });
 });
 
 // Fonction utilitaire pour afficher/masquer des sections
 const showSections = (toShow, toHide) => {
-  toShow.forEach((section) => (section.style.display = "block"));
+  toShow.forEach((section) => (section.style.display = ""));
   toHide.forEach((section) => (section.style.display = "none"));
 };
 
