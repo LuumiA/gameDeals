@@ -6,251 +6,17 @@
 
 // Base de données des jeux - ici on stocke tous nos jeux avec leurs infos
 
-const games = [
-  {
-    title: "Cyberpunk 2077",
-    originalPrice: 59.99,
-    currentPrice: 19.99,
-    discount: 67,
-    rating: 4.2,
-    platforms: ["Steam", "Epic", "GOG"],
-    icon: "🎮",
-  },
-  {
-    title: "The Witcher 3",
-    originalPrice: 49.99,
-    currentPrice: 29.99,
-    discount: 40,
-    rating: 4.8,
-    platforms: ["Steam", "Epic"],
-    icon: "⚔️",
-  },
-  {
-    title: "DOOM Eternal",
-    originalPrice: 59.99,
-    currentPrice: 39.99,
-    discount: 33,
-    rating: 4.5,
-    platforms: ["Steam", "Bethesda"],
-    icon: "🎮",
-  },
-  {
-    title: "Hades",
-    originalPrice: 24.99,
-    currentPrice: 19.99,
-    discount: 20,
-    rating: 4.9,
-    platforms: ["Steam", "Epic"],
-    icon: "⚔️",
-  },
-  {
-    title: "Minecraft",
-    originalPrice: 19.99,
-    currentPrice: 14.99,
-    discount: 25,
-    rating: 4.9,
-    platforms: ["Microsoft"],
-    icon: "⛏️",
-  },
-  {
-    title: "GTA5",
-    originalPrice: 29.99,
-    currentPrice: 19.99,
-    discount: 25,
-    rating: 4.9,
-    platforms: ["Rockstar", "Steam"],
-    icon: "🎮",
-  },
-  {
-    title: "Fifa25",
-    originalPrice: 69.99,
-    currentPrice: 39.99,
-    discount: 25,
-    rating: 4.9,
-    platforms: ["EA", "playstation", "Xbox"],
-    icon: "🎮",
-  },
-  {
-    title: "Red Dead Redemption 2",
-    originalPrice: 59.99,
-    currentPrice: 29.99,
-    discount: 50,
-    rating: 4.8,
-    platforms: ["Steam", "Rockstar", "Epic"],
-    icon: "🤠",
-  },
-  {
-    title: "Elden Ring",
-    originalPrice: 69.99,
-    currentPrice: 49.99,
-    discount: 29,
-    rating: 4.7,
-    platforms: ["Steam", "PlayStation", "Xbox"],
-    icon: "🛡️",
-  },
-  {
-    title: "Starfield",
-    originalPrice: 69.99,
-    currentPrice: 44.99,
-    discount: 36,
-    rating: 4.3,
-    platforms: ["Steam", "Microsoft"],
-    icon: "🚀",
-  },
-  {
-    title: "Resident Evil 4 Remake",
-    originalPrice: 59.99,
-    currentPrice: 39.99,
-    discount: 33,
-    rating: 4.6,
-    platforms: ["Steam", "PlayStation", "Xbox"],
-    icon: "🧟",
-  },
-  {
-    title: "Baldur’s Gate 3",
-    originalPrice: 69.99,
-    currentPrice: 59.99,
-    discount: 14,
-    rating: 4.9,
-    platforms: ["Steam", "GOG"],
-    icon: "🎲",
-  },
-  {
-    title: "Sekiro: Shadows Die Twice",
-    originalPrice: 59.99,
-    currentPrice: 29.99,
-    discount: 50,
-    rating: 4.7,
-    platforms: ["Steam"],
-    icon: "🗡️",
-  },
-  {
-    title: "Hogwarts Legacy",
-    originalPrice: 69.99,
-    currentPrice: 39.99,
-    discount: 43,
-    rating: 4.5,
-    platforms: ["Steam", "PlayStation", "Xbox"],
-    icon: "🪄",
-  },
-  {
-    title: "Dark Souls III",
-    originalPrice: 59.99,
-    currentPrice: 14.99,
-    discount: 75,
-    rating: 4.6,
-    platforms: ["Steam"],
-    icon: "💀",
-  },
-  {
-    title: "God of War",
-    originalPrice: 49.99,
-    currentPrice: 29.99,
-    discount: 40,
-    rating: 4.9,
-    platforms: ["Steam", "PlayStation"],
-    icon: "🔨",
-  },
-  {
-    title: "Stray",
-    originalPrice: 29.99,
-    currentPrice: 19.99,
-    discount: 33,
-    rating: 4.4,
-    platforms: ["Steam", "PlayStation"],
-    icon: "🐱",
-  },
-  {
-    title: "Assassin's Creed Valhalla",
-    originalPrice: 59.99,
-    currentPrice: 23.99,
-    discount: 60,
-    rating: 4.4,
-    platforms: ["Ubisoft", "Epic", "PlayStation", "Xbox"],
-    icon: "🪓",
-  },
-  {
-    title: "No Man's Sky",
-    originalPrice: 49.99,
-    currentPrice: 24.99,
-    discount: 50,
-    rating: 4.3,
-    platforms: ["Steam", "PlayStation", "Xbox"],
-    icon: "🪐",
-  },
-  {
-    title: "Cuphead",
-    originalPrice: 19.99,
-    currentPrice: 9.99,
-    discount: 50,
-    rating: 4.6,
-    platforms: ["Steam", "Microsoft", "Switch"],
-    icon: "☕",
-  },
-  {
-    title: "Terraria",
-    originalPrice: 9.99,
-    currentPrice: 4.99,
-    discount: 50,
-    rating: 4.8,
-    platforms: ["Steam", "GOG", "Switch"],
-    icon: "⛏️",
-  },
-  {
-    title: "Stardew Valley",
-    originalPrice: 14.99,
-    currentPrice: 8.99,
-    discount: 40,
-    rating: 4.9,
-    platforms: ["Steam", "GOG", "Switch"],
-    icon: "🌾",
-  },
-  {
-    title: "Valorant",
-    originalPrice: 0,
-    currentPrice: 0,
-    discount: 0,
-    rating: 4.2,
-    platforms: ["Riot"],
-    icon: "🔫",
-  },
-  {
-    title: "Phasmophobia",
-    originalPrice: 13.99,
-    currentPrice: 9.99,
-    discount: 29,
-    rating: 4.5,
-    platforms: ["Steam"],
-    icon: "👻",
-  },
-  {
-    title: "Overwatch 2",
-    originalPrice: 0,
-    currentPrice: 0,
-    discount: 0,
-    rating: 3.9,
-    platforms: ["Battle.net"],
-    icon: "⚔️",
-  },
-  {
-    title: "Among Us",
-    originalPrice: 4.99,
-    currentPrice: 3.49,
-    discount: 30,
-    rating: 4.1,
-    platforms: ["Steam", "Epic", "Switch"],
-    icon: "🧑‍🚀",
-  },
-  {
-    title: "Dead Cells",
-    originalPrice: 24.99,
-    currentPrice: 12.49,
-    discount: 50,
-    rating: 4.7,
-    platforms: ["Steam", "GOG", "Switch"],
-    icon: "💀",
-  },
-];
+let games = [];
+
+const fetchRealGames = () => {
+  fetch("https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Premier jeu reçu:", data[0]);
+      games = data;
+      generateGameCards();
+    });
+};
 
 // ====================================
 // SÉLECTEURS DOM - On récupère tous les éléments
@@ -368,20 +134,17 @@ const generateGameCards = () => {
     const gameCard = document.createElement("div");
     gameCard.className = "card-grid-games";
     gameCard.innerHTML = `
-      <div class="badge">-${game.discount}%</div>
-      <span style="font-size: 2.5rem">${game.icon}</span> 
+      <div class="badge">-${Math.round(game.savings)}%</div>
+      <img src="${game.thumb}" alt="${
+      game.title
+    }" style="width: 100px; height: auto;">
       <h3>${game.title}</h3>
-      <p>Platform: ${game.platforms.join(", ")}</p>
+      <p>Platform: Steam</p>
       <p><span style="text-decoration: line-through">$${
-        game.originalPrice
+        game.normalPrice
       }</span></p>
-      <p><span class="prix-actuel">$${game.currentPrice}</span></p>
-      <p>⭐ ${game.rating}/5</p>
-      <ul>
-        <li>${game.platforms[0] || ""}</li>
-        <li>${game.platforms[1] || ""}</li>
-        <li>${game.platforms[2] || ""}</li> 
-      </ul> 
+      <p><span class="prix-actuel">$${game.salePrice}</span></p>
+      <p>⭐ ${game.steamRatingText}</p>
       <button>Voir les offres</button>
      
     `;
@@ -429,20 +192,17 @@ filter.forEach((btn) => {
             const compareCard = document.createElement("div");
             compareCard.className = "compare-card";
             compareCard.innerHTML = `
-      <div class="badge">-${game.discount}%</div>
-      <span style="font-size: 2.5rem">${game.icon}</span> 
+      <div class="badge">-${Math.round(game.savings)}%</div>
+     <img src="${game.thumb}" alt="${
+              game.title
+            }" style="width: 100px; height: auto;">
       <h3>${game.title}</h3>
-      <p>Platform: ${game.platforms.join(", ")}</p>
+      <p>Platform: Steam</p>
       <p><span style="text-decoration: line-through">$${
-        game.originalPrice
+        game.normalPrice
       }</span></p>
-      <p><span class="prix-actuel">$${game.currentPrice}</span></p>
-      <p>⭐ ${game.rating}/5</p>
-      <ul>
-        <li>${game.platforms[0] || ""}</li>
-        <li>${game.platforms[1] || ""}</li>
-        <li>${game.platforms[2] || ""}</li> 
-      </ul> 
+      <p><span class="prix-actuel">$${game.salePrice}</span></p>
+      <p>⭐ ${game.steamRatingText}</p>
       <button>Voir les offres</button>
       <button class="btn-compare">Comparer</button>
     `;
@@ -463,22 +223,18 @@ filter.forEach((btn) => {
                     const compareCard = document.createElement("div");
                     compareCard.className = "compare-card";
                     compareCard.innerHTML = `
-      <div class="badge">-${game.discount}%</div>
-      <span style="font-size: 2.5rem">${game.icon}</span> 
+      <div class="badge">-${Math.round(game.savings)}%</div>
+      <img src="${game.thumb}" alt="${
+                      game.title
+                    }" style="width: 100px; height: auto;"> 
       <h3>${game.title}</h3>
-      <p>Platform: ${game.platforms.join(", ")}</p>
+      <p>Platform: Steam</p>
       <p><span style="text-decoration: line-through">$${
-        game.originalPrice
+        game.normalPrice
       }</span></p>
-      <p><span class="prix-actuel">$${game.currentPrice}</span></p>
-      <p>⭐ ${game.rating}/5</p>
-      <ul>
-        <li>${game.platforms[0] || ""}</li>
-        <li>${game.platforms[1] || ""}</li>
-        <li>${game.platforms[2] || ""}</li> 
-      </ul> 
+      <p><span class="prix-actuel">$${game.salePrice}</span></p>
+      <p>⭐ ${game.steamRatingText}</p>
       <button>Voir les offres</button>
-      <button class="btn-compare">Comparer</button>
     `;
                     container.appendChild(compareCard);
                   });
@@ -546,11 +302,11 @@ const setupSortFilter = () => {
     const selectedSort = filterSelect.value.toLowerCase();
 
     if (selectedSort === "prix") {
-      games.sort((a, b) => a.currentPrice - b.currentPrice);
+      games.sort((a, b) => a.salePrice - b.salePrice);
     } else if (selectedSort === "note") {
-      games.sort((a, b) => b.rating - a.rating);
+      games.sort((a, b) => b.steamRatingPercent - a.steamRatingPercent);
     } else if (selectedSort === "reduction") {
-      games.sort((a, b) => b.discount - a.discount);
+      games.sort((a, b) => b.savings - a.savings);
     }
     generateGameCards();
   });
@@ -566,7 +322,7 @@ const initApp = () => {
   createParticles();
 
   // 2. Génère le contenu dynamique
-  generateGameCards();
+  fetchRealGames();
 
   // 3. Configure les systèmes de filtrage (APRÈS génération des cartes)
   setupSearchFilter();
