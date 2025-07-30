@@ -1,60 +1,63 @@
-# 🎮 GameDeals - Mon site de deals gaming
+# 🎮 GameDeals - Site de deals gaming
 
 Salut ! 👋
 
-Voici mon projet GameDeals, un site pour trouver les meilleures promos de jeux vidéo.
+Voici mon projet GameDeals, un site pour trouver les meilleures promos de jeux vidéo en temps réel.
 
-## !Disclaimer pour le momment ce sont des fausses donnée je suis au debut du project donc pas encore mit d'api ou de vrai données
+🌐 **[Voir le site en action](https://game-deals-delta.vercel.app/)**
 
 ## 🚀 Ce que fait le site
 
-**GameDeals** c'est comme un Dealabs mais spécialement pour les jeux vidéo ! Tu peux :
+**GameDeals** utilise l'API CheapShark pour afficher de vrais deals de jeux vidéo ! Tu peux :
 
 - 🔍 **Rechercher des jeux** par nom en temps réel
-- 🎛️ **Filtrer par plateforme** (Steam, Epic, PlayStation, etc.)
-- 📊 **Voir les stats live** qui bougent comme en temps réel.
-- 🎯 **Naviguer entre les sections** (Deals du moment, Tous les jeux, Comparateur)
-- ✨ **Profiter des effets visuels** (particules, animations, design gaming)
+- 🎛️ **Filtrer et trier** par prix, note, réduction
+- 🛒 **Acheter directement** via les liens vers 30+ stores
+- ⚖️ **Comparer jusqu'à 3 jeux** côte à côte
+- 🏪 **Voir les deals** de Steam, Epic Games, GOG, Microsoft Store...
+- ✨ **Profiter d'un design gaming** avec particules et animations
 
 ## 🛠️ Technologies utilisées
 
 - **HTML5** - Structure du site
-- **CSS3** - Design et animations (avec variables CSS et responsive)
-- **JavaScript Vanilla** - Toute la logique et interactivité
-- **Font Awesome** - Pour les icônes
+- **CSS3** - Design et animations (variables CSS, responsive)
+- **JavaScript Vanilla** - Logique et intégration API
+- **CheapShark API** - Données de deals en temps réel
+- **Font Awesome** - Icônes
+- **Vercel** - Hébergement
 
-_Pas de frameworks pour l'instant, tout fait à la main pour bien apprendre les bases !_
+_Pas de frameworks, tout fait à la main pour bien maîtriser les bases !_
 
 ## 🎨 Ce qui rend le site stylé
 
 ### Design Gaming
 
-- **Thème sombre** avec des couleurs flashy (cyan, vert néon)
-- **Particules animées** qui flottent en arrière-plan
-- **Effets glow** sur les textes et boutons
-- **Dégradés** et transparences partout
+- **Thème sombre** avec couleurs flashy (cyan, vert néon)
+- **Particules animées** en arrière-plan
+- **Effets glow** sur textes et boutons
+- **Vraies images** des jeux via l'API
 
 ### Animations Live
 
-- Les **stats du header** bougent toutes les 2 secondes
-- La **hero section** a des compteurs animés
-- Le **Command Center** simule un feed en temps réel
-- **Radar qui tourne** pour l'effet "scan"
+- **Stats du header** qui bougent toutes les 2 secondes
+- **Compteurs animés** dans la hero section
+- **Command Center** avec feed temps réel
+- **Radar tournant** pour l'effet "scan"
 
 ### Expérience Utilisateur
 
-- **Recherche instantanée** dès que tu tapes
-- **Filtres par plateforme** qui marchent vraiment
-- **Navigation fluide** entre les sections
-- **Site responsive** (ça marche sur mobile !)
+- **Recherche instantanée** pendant la frappe
+- **Filtres fonctionnels** par plateforme
+- **Navigation fluide** entre sections
+- **100% responsive** (mobile-friendly)
 
 ## 📁 Structure du projet
 
 ```
 gamedeals/
 ├── index.html          # Page principale
-├── style.css          # Tous les styles (optimisé)
-├── script.js          # Logique JavaScript
+├── style.css          # Tous les styles
+├── script.js          # Logique JavaScript + API
 └── README.md          # Ce fichier !
 ```
 
@@ -63,42 +66,52 @@ gamedeals/
 ### 1. Navigation intelligente
 
 - **3 onglets** : Deals du moment, Tous les jeux, Comparateur
-- Chaque onglet affiche/masque les bonnes sections
-- **Bouton actif** visuellement distinct
+- Chaque section a sa propre logique d'affichage
+- **Interface guidée** pour le comparateur
 
-### 2. Système de recherche
+### 2. Intégration API en temps réel
 
-- **Recherche par nom** : tape "minecraft" et hop !
-- **Filtre par plateforme** : sélectionne "Steam" pour voir que les jeux Steam
-- **Temps réel** : ça filtre pendant que tu tapes
+- **Vraies données** via CheapShark API
+- **Deals actualisés** de 30+ stores
+- **Liens d'achat directs** vers les plateformes
+- **Gestion d'erreurs** et states de chargement
 
-### 3. Base de données dynamique
+### 3. Système de comparaison
 
-- **7 jeux** avec vraies données (prix, plateformes, notes)
-- **Génération automatique** des cartes via JavaScript
-- **Facile d'ajouter** de nouveaux jeux dans le tableau
+- **Sélection de 3 jeux maximum**
+- **Interface étape par étape** : Accueil → Sélection → Comparaison
+- **Comparaison côte à côte** des prix, notes, plateformes
+- **Feedback visuel** sur les jeux sélectionnés
 
-### 4. Animations partout
+### 4. Tri et filtrage avancé
 
-- **Header** : Stats qui changent
-- **Hero** : 3 compteurs animés
-- **Command Center** : 4 stats live + radar
-- **Cartes** : Effets hover stylés
+- **Tri par prix**, note, pourcentage de réduction
+- **Recherche textuelle** en temps réel
+- **Filtres par plateforme** multiples
+- **Interface responsive** sur tous écrans
 
-## 🚧 Ce qui pourrait être amélioré
+## ⚠️ Notes importantes
 
-- [ ] Ajouter plus de jeux à la base de données
-- [ ] Système de tri par prix/note
-- [ ] Mode comparateur plus avancé
-- [ ] Vraies données depuis des APIs gaming
-- [ ] Système de favoris
-- [ ] Historique des prix
+- **Prix indicatifs** : Les prix peuvent varier entre l'affichage et l'achat (délais API, stocks limités)
+- **Liens externes** : Redirection vers les stores officiels via CheapShark
+- **Géolocalisation** : Certains deals peuvent varier selon votre région
+
+## 🚧 Améliorations possibles
+
+- [ ] Pagination/Chargement progressif des deals
+- [ ] Système de favoris avec localStorage
+- [ ] Notifications pour les deals suivis
+- [ ] Historique des prix avec graphiques
+- [ ] Filtres par genre de jeu
+- [ ] Mode sombre/clair
 
 ## 🤝 Contributions
 
-Si tu veux m'aider ou améliorer le projet :
+Si tu veux contribuer au projet :
 
 1. **Fork** le repo
 2. **Crée une branche** pour ta feature
-3. **Fais tes modifs**
-4. **Pull request** !
+3. **Teste** tes modifications
+4. **Pull request** avec description
+
+---
