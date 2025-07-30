@@ -9,7 +9,7 @@
 let games = [];
 
 const fetchRealGames = () => {
-  fetch("https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15")
+  fetch("https://www.cheapshark.com/api/1.0/deals?upperPrice=15")
     .then((response) => response.json())
     .then((data) => {
       console.log("Premier jeu reçu:", data[0]);
@@ -139,7 +139,7 @@ const generateGameCards = () => {
       game.title
     }" style="width: 100px; height: auto;">
       <h3>${game.title}</h3>
-      <p>Platform: Steam</p>
+     Platform: ${getStoreName(game.storeID)}
       <p><span style="text-decoration: line-through">$${
         game.normalPrice
       }</span></p>
@@ -157,6 +157,44 @@ const generateGameCards = () => {
 // ====================================
 // GESTION DE LA NAVIGATION
 // ====================================
+
+const getStoreName = (storeID) => {
+  if (storeID === "1") return "Steam";
+  if (storeID === "2") return "GamersGate";
+  if (storeID === "3") return "Green Man Gaming";
+  if (storeID === "4") return "Amazon";
+  if (storeID === "5") return "GameStop";
+  if (storeID === "6") return "Direct2Drive";
+  if (storeID === "7") return "GOG";
+  if (storeID === "8") return "Origin";
+  if (storeID === "9") return "Get Games";
+  if (storeID === "10") return "Shiny Loot";
+  if (storeID === "11") return "Humble Store";
+  if (storeID === "12") return "Desura";
+  if (storeID === "13") return "Uplay";
+  if (storeID === "14") return "IndieGameStand";
+  if (storeID === "15") return "Fanatical";
+  if (storeID === "16") return "Gamesrocket";
+  if (storeID === "17") return "Games Republic";
+  if (storeID === "18") return "SilaGames";
+  if (storeID === "19") return "Playfield";
+  if (storeID === "20") return "ImperialGames";
+  if (storeID === "21") return "WinGameStore";
+  if (storeID === "22") return "FunStockDigital";
+  if (storeID === "23") return "Microsoft Store";
+  if (storeID === "24") return "Gamesplanet";
+  if (storeID === "25") return "Epic Games Store";
+  if (storeID === "26") return "Razer Game Store";
+  if (storeID === "27") return "Gamesload";
+  if (storeID === "28") return "2Game";
+  if (storeID === "29") return "IndieGala";
+  if (storeID === "30") return "Blizzard Shop";
+  if (storeID === "31") return "AllYouPlay";
+  if (storeID === "32") return "DLGamer";
+  if (storeID === "33") return "Noctre";
+  if (storeID === "34") return "DreamGame";
+  return "Autre Store";
+};
 
 // Gère le changement d'onglets (Deals/Tous les jeux/Comparateur)
 filter.forEach((btn) => {
@@ -197,7 +235,7 @@ filter.forEach((btn) => {
               game.title
             }" style="width: 100px; height: auto;">
       <h3>${game.title}</h3>
-      <p>Platform: Steam</p>
+      Platform: ${getStoreName(game.storeID)}
       <p><span style="text-decoration: line-through">$${
         game.normalPrice
       }</span></p>
@@ -228,7 +266,7 @@ filter.forEach((btn) => {
                       game.title
                     }" style="width: 100px; height: auto;"> 
       <h3>${game.title}</h3>
-      <p>Platform: Steam</p>
+      Platform: ${getStoreName(game.storeID)}
       <p><span style="text-decoration: line-through">$${
         game.normalPrice
       }</span></p>
