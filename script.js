@@ -145,7 +145,14 @@ const generateGameCards = () => {
       }</span></p>
       <p><span class="prix-actuel">$${game.salePrice}</span></p>
       <p>⭐ ${game.steamRatingText}</p>
-      <button>Voir les offres</button>
+      <p style="font-size: 0.8rem; color: #888;">
+  Prix susceptibles d'évoluer - Vérifiez sur le store
+</p>
+      <a href="https://www.cheapshark.com/redirect?dealID=${
+        game.dealID
+      }" target="_blank">
+  <button>Acheter maintenant</button>
+</a>
      
     `;
     container.appendChild(gameCard);
@@ -241,8 +248,17 @@ filter.forEach((btn) => {
       }</span></p>
       <p><span class="prix-actuel">$${game.salePrice}</span></p>
       <p>⭐ ${game.steamRatingText}</p>
-      <button>Voir les offres</button>
-      <button class="btn-compare">Comparer</button>
+      <p style="font-size: 0.8rem; color: #888;">
+  Prix susceptibles d'évoluer - Vérifiez sur le store
+</p>
+    <div class="button-group">
+  <a href="https://www.cheapshark.com/redirect?dealID=${
+    game.dealID
+  }" target="_blank" style="flex: 1;">
+    <button class="btn-primary" style="width: 100%;">Acheter</button>
+  </a>
+  <button class="btn-compare btn-secondary">Comparer</button>
+</div>
     `;
             container.appendChild(compareCard);
           });
@@ -272,7 +288,14 @@ filter.forEach((btn) => {
       }</span></p>
       <p><span class="prix-actuel">$${game.salePrice}</span></p>
       <p>⭐ ${game.steamRatingText}</p>
-      <button>Voir les offres</button>
+      <p style="font-size: 0.8rem; color: #888;">
+  Prix susceptibles d'évoluer - Vérifiez sur le store
+</p>
+     <a href="https://www.cheapshark.com/redirect?dealID=${
+       game.dealID
+     }" target="_blank">
+  <button>Acheter maintenant</button>
+</a>
     `;
                     container.appendChild(compareCard);
                   });
