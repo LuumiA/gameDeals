@@ -418,8 +418,10 @@ filter.forEach((btn) => {
       const container = document.querySelector(".compare");
       container.innerHTML = "";
       if (gamesChoice.length === 0) {
-        container.innerHTML = `<p>Veuillez séléctionnez 3 jeux pour les comparer.</p>
-        <button class="valider">OK</button>`;
+        container.innerHTML = `<div class="welcome-message">
+  <p>Veuillez sélectionnez 3 jeux pour les comparer.</p>
+  <button class="valider">OK</button>
+</div>`;
         const buttonValider = document.querySelector(".valider");
         buttonValider.addEventListener("click", () => {
           container.innerHTML = "";
@@ -455,6 +457,32 @@ filter.forEach((btn) => {
               ) {
                 gamesChoice.push(games[index]);
                 btn.style.backgroundColor = "#4CAF50";
+                if (gamesChoice.length === 3) {
+                  container.innerHTML = "";
+                  gamesChoice.forEach((game) => {
+                    const compareCard = document.createElement("div");
+                    compareCard.className = "compare-card";
+                    compareCard.innerHTML = `
+      <div class="badge">-${game.discount}%</div>
+      <span style="font-size: 2.5rem">${game.icon}</span> 
+      <h3>${game.title}</h3>
+      <p>Platform: ${game.platforms.join(", ")}</p>
+      <p><span style="text-decoration: line-through">$${
+        game.originalPrice
+      }</span></p>
+      <p><span class="prix-actuel">$${game.currentPrice}</span></p>
+      <p>⭐ ${game.rating}/5</p>
+      <ul>
+        <li>${game.platforms[0] || ""}</li>
+        <li>${game.platforms[1] || ""}</li>
+        <li>${game.platforms[2] || ""}</li> 
+      </ul> 
+      <button>Voir les offres</button>
+      <button class="btn-compare">Comparer</button>
+    `;
+                    container.appendChild(compareCard);
+                  });
+                }
               } else if (gamesChoice.includes(games[index])) {
                 gamesChoice = gamesChoice.filter(
                   (game) => game !== games[index]
