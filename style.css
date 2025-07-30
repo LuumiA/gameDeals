@@ -1130,3 +1130,23 @@ footer {
   box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
   filter: brightness(1.1);
 }
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.button-group button {
+  flex: 1; /* Chaque bouton prend la même taille */
+  padding: 12px;
+  font-size: 0.875rem;
+}
+
+.btn-primary {
+  background-color: var(--accent-blue);
+}
+
+.btn-secondary {
+  background-color: var(--accent-green);
+}
