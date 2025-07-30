@@ -1082,3 +1082,51 @@ footer {
     font-size: 0.875rem;
   }
 }
+
+/* Message d'accueil du comparateur */
+.welcome-message {
+  background: linear-gradient(
+    135deg,
+    rgba(26, 31, 46, 0.9),
+    rgba(37, 43, 61, 0.9)
+  );
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 1rem;
+  padding: 3rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
+  max-width: 600px;
+  margin: 2rem auto 0 auto; /* Centré horizontalement avec margin auto */
+}
+
+.welcome-message p {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.welcome-message .valider {
+  background: linear-gradient(
+    45deg,
+    var(--accent-cyan),
+    var(--accent-green-flashy)
+  );
+  color: var(--text-primary);
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+.welcome-message .valider:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+  filter: brightness(1.1);
+}
