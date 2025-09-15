@@ -8,8 +8,14 @@
 
 let games = [];
 
+// Variables de pagination
+let currentPage = 1; // Page actuelle (on commence à la page 1)
+let gamesPerPage = 12; // Nombre de jeux par page
+let totalGames = 0; // Total de jeux reçus de l'API
+let totalPages = 0; // Nombre total de pages calculé
+
 const fetchRealGames = () => {
-  fetch("https://www.cheapshark.com/api/1.0/deals?upperPrice=15")
+  fetch("https://www.cheapshark.com/api/1.0/deals?upperPrice=50")
     .then((response) => response.json())
     .then((data) => {
       console.log("Premier jeu reçu:", data[0]);
@@ -130,7 +136,11 @@ const generateGameCards = () => {
   const container = document.querySelector(".container-jeux");
   container.innerHTML = ""; // Vide le container
 
-  games.forEach((game) => {
+  let debut = (currentPage - 1) * gamesPerPage;
+  let fin = debut + gamesPerPage;
+  let jeuxDeLaPage = games.slice(debut, fin);
+
+  jeuxDeLaPage.forEach((game) => {
     const gameCard = document.createElement("div");
     gameCard.className = "card-grid-games";
     gameCard.innerHTML = `
