@@ -20,7 +20,11 @@ const fetchRealGames = () => {
     .then((data) => {
       console.log("Premier jeu reçu:", data[0]);
       games = data;
+      // Calculer le nombre total de pages
+      totalGames = data.length;
+      totalPages = Math.ceil(totalGames / gamesPerPage);
       generateGameCards();
+      updatePagination();
     });
 };
 
@@ -169,6 +173,31 @@ const generateGameCards = () => {
   });
   // IMPORTANT : Récupérer les cartes APRÈS les avoir créées
   gameCards = document.querySelectorAll(".card-grid-games");
+};
+
+// Fonction pour mettre à jour l'affichage de la pagination
+const updatePagination = () => {
+  //Mettre a jour les infos de page
+  document.getElementById("currentPageDisplay").textContent = currentPage;
+  document.getElementById("totalPagesDisplay").textContent = totalPages;
+
+  //Gerer les boutons Précédent/Suivant
+
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  prevBtn.disabled = currentPage === 1;
+  nextBtn.disabled = currentPage === totalPages;
+};
+
+const changePage = (direction) => {
+  if (direction === "prev" && currentPage > 1) {
+    currentPage--;
+  } else if (direction === "next" && currentPage < totalPages) {
+    currentPage++;
+  }
+  generateGameCards();
+  updatePagination();
 };
 
 // ====================================
@@ -405,6 +434,14 @@ const initApp = () => {
   setInterval(animateSaved, 2000);
   setInterval(animatedHeroStats, 2000);
   setInterval(animateCommandStats, 2000);
+
+  // 5. Configure les boutons de pagination
+  document
+    .getElementById("prevBtn")
+    .addEventListener("click", () => changePage("prev"));
+  document
+    .getElementById("nextBtn")
+    .addEventListener("click", () => changePage("next"));
 };
 
 // GO !
