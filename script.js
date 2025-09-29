@@ -158,7 +158,11 @@ const generateGameCards = () => {
         game.normalPrice
       }</span></p>
       <p><span class="prix-actuel">$${game.salePrice}</span></p>
-      <p>⭐ ${game.steamRatingText}</p>
+      <p>${
+        game.steamRatingText !== null
+          ? "⭐ " + game.steamRatingText
+          : "Pas de note"
+      }</p>
       <p style="font-size: 0.8rem; color: #888;">
   Prix susceptibles d'évoluer - Vérifiez sur le store
 </p>
@@ -442,6 +446,30 @@ const initApp = () => {
   document
     .getElementById("nextBtn")
     .addEventListener("click", () => changePage("next"));
+
+  //6. Gestion du bouton "retour en haut"
+  window.addEventListener("scroll", () => {
+    const bouton = document.querySelector("#backToTop");
+
+    if (window.scrollY > 300) {
+      bouton.classList.add("visible");
+    } else {
+      bouton.classList.remove("visible");
+    }
+  });
+
+  // 7. Clic sur le bouton retour en haut
+  const boutonRetour = document.querySelector("#backToTop");
+  if (boutonRetour) {
+    boutonRetour.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  } else {
+    console.log("Bouton non trouvé !");
+  }
 };
 
 // GO !
