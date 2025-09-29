@@ -705,6 +705,44 @@ header {
   background-color: var(--accent-blue-hover);
 }
 
+/* Bouton favoris sur les cartes */
+.favorite-btn {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: rgba(26, 31, 46, 0.9);
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.favorite-btn:hover {
+  border-color: var(--accent-red);
+  transform: scale(1.1);
+}
+
+.favorite-btn.liked {
+  background: var(--accent-red);
+  border-color: var(--accent-red);
+  color: white;
+}
+
+.favorite-btn i {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.favorite-btn.liked i {
+  color: white;
+}
+
 /* Compare Section */
 .compare {
   display: grid;
@@ -1103,6 +1141,16 @@ footer {
     font-size: 0.875rem;
   }
 
+  /* Responsive pour bouton favoris en mobile */
+  .favorite-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .favorite-btn i {
+    font-size: 0.9rem;
+  }
+
   .pagination {
     padding: 0.5rem;
   }
@@ -1110,6 +1158,18 @@ footer {
   .pagination button {
     padding: 6px 12px;
     font-size: 0.8rem;
+  }
+
+  /* Responsive pour bouton favoris */
+  .favorite-btn {
+    width: 35px;
+    height: 35px;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .favorite-btn i {
+    font-size: 1rem;
   }
 }
 
