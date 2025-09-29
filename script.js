@@ -171,6 +171,10 @@ const generateGameCards = () => {
       }" target="_blank">
   <button>Acheter maintenant</button>
 </a>
+<button class="favorite-btn" data-game-id="${game.dealID}">
+  <i class="fa-regular fa-heart"></i>
+</button>
+  
      
     `;
     container.appendChild(gameCard);
@@ -470,6 +474,13 @@ const initApp = () => {
   } else {
     console.log("Bouton non trouvé !");
   }
+
+  // 8.Gestion des favoris
+  const container = document.querySelector(".container-jeux");
+  container.addEventListener("click", (event) => {
+    if (event.target.classList.contains("favorite-btn")) {
+    }
+  });
 };
 
 // GO !
